@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroBackground}>
-        <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="Tây Nguyên Adventure" className={styles.heroImage} />
+        <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Tây Nguyên Adventure" className={styles.heroImage} />
         <div className={styles.heroOverlay}></div>
       </div>
       <div className={styles.heroInner}>

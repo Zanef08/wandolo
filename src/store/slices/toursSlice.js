@@ -10,7 +10,7 @@ const initialState = {
       difficulty: "Dễ",
       price: 2990000,
       maxPrice: 3990000,
-      image: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
         "Khám phá văn hóa Churu độc đáo tại làng Kon Klor, trải nghiệm cuộc sống bản địa và thưởng thức ẩm thực truyền thống.",
       highlights: [
@@ -34,7 +34,7 @@ const initialState = {
       difficulty: "Trung bình",
       price: 4990000,
       maxPrice: 6490000,
-      image: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
         "Hành trình khám phá hồ Tơ Nưng - viên ngọc xanh giữa cao nguyên, kết hợp trekking và tìm hiểu văn hóa Jrai.",
       highlights: [
@@ -58,7 +58,7 @@ const initialState = {
       difficulty: "Dễ",
       price: 2490000,
       maxPrice: 3490000,
-      image: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
         "Trải nghiệm văn hóa trà tại Bảo Lộc, khám phá những đồi chè xanh mướt và tìm hiểu quy trình sản xuất trà.",
       highlights: [
@@ -82,7 +82,7 @@ const initialState = {
       difficulty: "Khó",
       price: 5990000,
       maxPrice: 7490000,
-      image: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
         "Hành trình mạo hiểm khám phá Vườn Quốc Gia Yok Đôn, tìm hiểu về voi rừng và hệ sinh thái đa dạng.",
       highlights: [
@@ -106,7 +106,7 @@ const initialState = {
       difficulty: "Khó",
       price: 6990000,
       maxPrice: 8490000,
-      image: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
         "Thử thách bản thân với hành trình chinh phục đỉnh Ngọc Linh - nóc nhà Trường Sơn Nam, khám phá làng nghề rèn sắt truyền thống.",
       highlights: [

@@ -57,10 +57,10 @@ const TourDetail = () => {
   }
 
   const galleryImages = [
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
+    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
   ]
 
   return (
@@ -78,7 +78,7 @@ const TourDetail = () => {
       {/* Hero Section */}
       <section className={styles.tourHero}>
         <div className={styles.heroBackground}>
-          <img src={tour.image || "/placeholder.svg"} alt={tour.title} className={styles.heroImage} />
+          <img src={tour.image || "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"} alt={tour.title} className={styles.heroImage} />
           <div className={styles.heroOverlay}></div>
         </div>
         <div className="container">
@@ -214,7 +214,7 @@ const TourDetail = () => {
               <div className={styles.gallery}>
                 {galleryImages.map((image, index) => (
                   <div key={index} className={styles.galleryItem}>
-                    <img src={image || "/placeholder.svg"} alt={`Gallery ${index + 1}`} />
+                    <img src={image || "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"} alt={`Gallery ${index + 1}`} />
                   </div>
                 ))}
               </div>

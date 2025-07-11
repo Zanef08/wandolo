@@ -11,7 +11,7 @@ const Testimonials = () => {
       comment:
         "Tour Hồn Churu thật sự tuyệt vời! Hướng dẫn viên rất chuyên nghiệp, an toàn được đảm bảo tuyệt đối. Mình đã có những trải nghiệm văn hóa rất sâu sắc với người dân địa phương.",
       tour: "Hồn Churu giữa Đại Ngàn",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const Testimonials = () => {
       comment:
         "Lần đầu đi trekking nhưng cảm thấy rất an tâm với Wandolo. Đội ngũ hỗ trợ tận tình, thiết bị chất lượng cao. Đặc biệt ấn tượng với app GPS tracking và tính năng SOS.",
       tour: "Viên Ngọc Ẩn giữa Cao Nguyên",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const Testimonials = () => {
       comment:
         "Tour B'Lao Tea Hill hoàn hảo cho những ai muốn thư giãn và khám phá. Cảnh đẹp, không khí trong lành, và được học về văn hóa trà rất thú vị. Sẽ quay lại chắc chắn!",
       tour: "B'Lao The Tea Hill",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
   ]
 

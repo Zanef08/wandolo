@@ -43,7 +43,7 @@ const Tours = () => {
       {/* Hero Section */}
       <section className={styles.toursHero}>
         <div className={styles.heroBackground}>
-          <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="Tours Background" className={styles.heroImage} />
+          <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Tours Background" className={styles.heroImage} />
           <div className={styles.heroOverlay}></div>
         </div>
         <div className="container">

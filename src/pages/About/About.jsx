@@ -29,35 +29,35 @@ const About = () => {
       position: "CEO & Co-founder",
       description:
         "Lãnh đạo tầm nhìn và chiến lược tổng thể của Wandolo, đảm bảo công ty đi đúng hướng và đạt được các mục tiêu dài hạn.",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       name: "Nguyễn Ngọc Hà Viên",
       position: "COO & Co-founder",
       description:
         "Quản lý và giám sát các hoạt động hàng ngày, đảm bảo chất lượng dịch vụ và trải nghiệm tuyệt vời cho khách hàng.",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       name: "Nguyễn Huỳnh Tấn Tài",
       position: "CMO & Co-founder",
       description:
         "Chịu trách nhiệm về chiến lược marketing và phát triển thương hiệu, đảm bảo Wandolo có sự hiện diện mạnh mẽ trên thị trường.",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       name: "Lê Thanh Hiền",
       position: "HR Manager & Co-founder",
       description:
         "Quản lý công nghệ và phát triển nền tảng kỹ thuật số, đảm bảo hệ thống vận hành hiệu quả và bảo mật.",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
     {
       name: "Lê Tân Vy",
       position: "CFO & Co-founder",
       description:
         "Quản lý các vấn đề tài chính, lập kế hoạch ngân sách và đảm bảo công ty duy trì sự ổn định tài chính.",
-      avatar: "/public/assets/The-Latest-Trends-in-Adventure-Travel.webp",
+      avatar: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
     },
   ]
 
@@ -73,7 +73,7 @@ const About = () => {
       {/* Hero Section */}
       <section className={styles.aboutHero}>
         <div className={styles.heroBackground}>
-          <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="About Wandolo" className={styles.heroImage} />
+          <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="About Wandolo" className={styles.heroImage} />
           <div className={styles.heroOverlay}></div>
         </div>
         <div className="container">
@@ -107,7 +107,7 @@ const About = () => {
               </p>
             </div>
             <div className={styles.introImage}>
-              <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="Wandolo Team" />
+              <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Wandolo Team" />
             </div>
           </div>
         </section>
@@ -217,7 +217,7 @@ const About = () => {
               </div>
             </div>
             <div className={styles.whyImage}>
-              <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="Why Choose Wandolo" />
+              <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Why Choose Wandolo" />
             </div>
           </div>
         </section>

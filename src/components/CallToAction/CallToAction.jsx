@@ -6,7 +6,7 @@ const CallToAction = () => {
   return (
     <section className={styles.cta}>
       <div className={styles.ctaBackground}>
-        <img src="/public/assets/The-Latest-Trends-in-Adventure-Travel.webp" alt="Adventure Background" className={styles.ctaImage} />
+        <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Adventure Background" className={styles.ctaImage} />
         <div className={styles.ctaOverlay}></div>
       </div>
       <div className="container">
