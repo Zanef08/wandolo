@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Clock, Users, Star, MapPin } from "lucide-react"
+import { Clock, Users, Star, MapPin, Eye } from "lucide-react"
 import styles from "./TourCard.module.scss"
 
 const TourCard = ({ tour }) => {
@@ -72,8 +72,8 @@ const TourCard = ({ tour }) => {
             <span className={styles.price}>{formatPrice(tour.price)}</span>
             <span className={styles.priceUnit}>/người</span>
           </div>
-          <Link to={`/tours/${tour.id}`} className="btn primary">
-            Xem chi tiết
+          <Link to={`/tours/${tour.id}`} className={styles.viewButton}>
+            <Eye size={20} />
           </Link>
         </div>
       </div>

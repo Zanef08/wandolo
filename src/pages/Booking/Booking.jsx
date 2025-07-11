@@ -113,14 +113,31 @@ const Booking = () => {
 
   return (
     <div className={styles.bookingPage}>
+      {/* Hero Section */}
+      <section className={styles.bookingHero}>
+        <div className={styles.heroBackground}>
+          <img src="https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto" alt="Booking Hero" className={styles.heroImage} />
+          <div className={styles.heroOverlay}></div>
+        </div>
+        <div className="container">
+          <div className={styles.heroContent}>
+            <h1>Đặt Tour Trải Nghiệm</h1>
+            <p className={styles.heroTagline}>Khám phá Tây Nguyên an toàn, dễ dàng chỉ với vài bước!</p>
+            <p className={styles.heroDescription}>Chọn tour, điền thông tin, chọn dịch vụ bổ sung và thanh toán trực tuyến. Đội ngũ Wandolo sẽ đồng hành cùng bạn trên mọi hành trình.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Header */}
       <div className={styles.bookingHeader}>
         <div className="container">
-          <button onClick={() => navigate(`/tours/${tourId}`)} className={styles.backButton}>
-            <ArrowLeft size={20} />
-            Quay lại tour
-          </button>
-          <h1>Đặt tour: {tour.title}</h1>
+          <div className={styles.headerContent}>
+            <button onClick={() => navigate(`/tours/${tourId}`)} className={styles.backButton}>
+              <ArrowLeft size={20} />
+              Quay lại tour
+            </button>
+            <h1>Đặt tour: {tour.title}</h1>
+          </div>
         </div>
       </div>
 

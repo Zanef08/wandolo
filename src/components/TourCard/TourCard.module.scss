@@ -245,6 +245,30 @@
   font-weight: 500;
 }
 
+.viewButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary-green);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+  text-decoration: none;
+  
+  &:hover {
+    background: var(--primary-green-dark);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 // Hover effects for interactive elements
 .tourCard:hover .highlight {
   background: var(--primary-green);

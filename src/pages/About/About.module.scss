@@ -94,16 +94,16 @@
   animation: fadeInUp 1s ease-out;
   
   h1 {
-    font-size: clamp(3rem, 8vw, 4.5rem);
-    font-weight: 900;
-    margin-bottom: var(--space-6);
-    background: var(--gradient-warning);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      margin-bottom: var(--space-6);
+      background: linear-gradient(135deg, #34d399 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
   .heroTagline {
