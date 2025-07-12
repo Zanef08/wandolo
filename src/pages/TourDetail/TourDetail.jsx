@@ -56,13 +56,6 @@ const TourDetail = () => {
     }
   }
 
-  const galleryImages = [
-    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-    "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-  ]
-
   return (
     <div className={styles.tourDetail}>
       {/* Breadcrumb */}
@@ -78,7 +71,7 @@ const TourDetail = () => {
       {/* Hero Section */}
       <section className={styles.tourHero}>
         <div className={styles.heroBackground}>
-          <img src={tour.image || "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"} alt={tour.title} className={styles.heroImage} />
+          <img src={tour.image} alt={tour.title} className={styles.heroImage} />
           <div className={styles.heroOverlay}></div>
         </div>
         <div className="container">
@@ -101,11 +94,11 @@ const TourDetail = () => {
               </div>
               <div className={styles.metaItem}>
                 <Users size={20} />
-                <span>Tối đa 8 người</span>
+                <span>Tối đa {tour.maxPeople} người</span>
               </div>
               <div className={styles.metaItem}>
                 <Star size={20} />
-                <span>4.8 (24 đánh giá)</span>
+                <span>{tour.rating} ({tour.reviewCount} đánh giá)</span>
               </div>
             </div>
           </div>
@@ -120,6 +113,55 @@ const TourDetail = () => {
             <section className={styles.section}>
               <h2>Giới thiệu tour</h2>
               <p className={styles.description}>{tour.description}</p>
+            </section>
+
+            {/* Guide Info */}
+            <section className={styles.section}>
+              <h2>Hướng dẫn viên</h2>
+              <div style={{display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap'}}>
+                <div style={{minWidth: 180, textAlign: 'center'}}>
+                  <img src={tour.guide.avatar} alt={tour.guide.name} style={{width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', marginBottom: 12, border: '4px solid #10b981'}} />
+                  <div style={{fontWeight: 700, fontSize: 20}}>{tour.guide.name}</div>
+                  <div style={{color: '#64748b', fontSize: 14, margin: '4px 0'}}>{tour.guide.experience} · {tour.guide.age} tuổi</div>
+                  <div style={{margin: '4px 0'}}>
+                    <span style={{color: '#f59e0b', fontWeight: 600}}>★ {tour.guide.rating}</span> ({tour.guide.toursCompleted} tours)
+                  </div>
+                  <div style={{margin: '4px 0'}}>
+                    {tour.guide.languages.map((language, index) => (
+                      <span key={index} style={{background: '#e0f2fe', color: '#0284c7', borderRadius: 8, padding: '2px 8px', fontSize: 12, marginRight: 4}}>{language}</span>
+                    ))}
+                  </div>
+                </div>
+                <div style={{flex: 1, minWidth: 260}}>
+                  <div style={{marginBottom: 12, color: '#334155'}}>{tour.guide.bio}</div>
+                  <div style={{marginBottom: 12}}>
+                    <div style={{fontWeight: 600, marginBottom: 4}}>Chuyên môn</div>
+                    <div style={{display: 'flex', gap: 8, flexWrap: 'wrap'}}>
+                      {tour.guide.specialties.map((specialty, index) => (
+                        <span key={index} style={{background: '#d1fae5', color: '#047857', borderRadius: 16, padding: '4px 14px', fontSize: 14}}>{specialty}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{fontWeight: 600, marginBottom: 4}}>Chứng chỉ & Bằng cấp</div>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
+                      {tour.guide.certificates.map((cert, index) => (
+                        <div key={index} style={{display: 'flex', alignItems: 'center', background: '#f9fafb', borderRadius: 16, padding: 12, boxShadow: '0 1px 4px #0001'}}>
+                          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=80&h=80" alt="cert" style={{width: 56, height: 56, borderRadius: 12, objectFit: 'cover', marginRight: 16}} />
+                          <div style={{flex: 1}}>
+                            <div style={{fontWeight: 500}}>{cert.name}</div>
+                            <div style={{fontSize: 13, color: '#0284c7'}}>{cert.issuer}</div>
+                            <div style={{fontSize: 13, color: '#64748b'}}>Năm {cert.year}</div>
+                          </div>
+                          {cert.verified && (
+                            <span style={{background: '#d1fae5', color: '#10b981', borderRadius: 8, padding: '2px 10px', fontSize: 13, fontWeight: 600}}>Verified</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* Highlights */}
@@ -139,59 +181,16 @@ const TourDetail = () => {
             <section className={styles.section}>
               <h2>Lịch trình chi tiết</h2>
               <div className={styles.itinerary}>
-                <div className={styles.itineraryDay}>
-                  <h3>Ngày 1: Khởi hành và khám phá</h3>
-                  <ul>
-                    <li>06:00 - Tập trung tại điểm hẹn, khởi hành</li>
-                    <li>09:00 - Đến điểm đến, gặp gỡ hướng dẫn viên địa phương</li>
-                    <li>10:00 - Bắt đầu hành trình trekking</li>
-                    <li>12:00 - Nghỉ trưa và thưởng thức ẩm thực địa phương</li>
-                    <li>14:00 - Tiếp tục khám phá và trải nghiệm văn hóa</li>
-                    <li>18:00 - Check-in homestay/cắm trại</li>
-                    <li>19:30 - Bữa tối và giao lưu văn nghệ</li>
-                  </ul>
-                </div>
-                {tour.duration.includes("3 ngày") && (
-                  <>
-                    <div className={styles.itineraryDay}>
-                      <h3>Ngày 2: Thử thách và khám phá sâu</h3>
-                      <ul>
-                        <li>06:00 - Thức dậy, ngắm bình minh</li>
-                        <li>07:00 - Ăn sáng và chuẩn bị</li>
-                        <li>08:00 - Trekking đến điểm cao nhất</li>
-                        <li>12:00 - Picnic trên đỉnh núi</li>
-                        <li>14:00 - Khám phá hang động/thác nước</li>
-                        <li>17:00 - Trở về camp, nghỉ ngơi</li>
-                        <li>19:00 - Bữa tối và đốt lửa trại</li>
-                      </ul>
-                    </div>
-                    <div className={styles.itineraryDay}>
-                      <h3>Ngày 3: Hoàn thành hành trình</h3>
-                      <ul>
-                        <li>07:00 - Ăn sáng và dọn dẹp</li>
-                        <li>08:30 - Trekking trở về</li>
-                        <li>11:00 - Thăm làng nghề địa phương</li>
-                        <li>12:30 - Bữa trưa chia tay</li>
-                        <li>14:00 - Khởi hành về điểm ban đầu</li>
-                        <li>17:00 - Kết thúc hành trình</li>
-                      </ul>
-                    </div>
-                  </>
-                )}
-                {tour.duration.includes("2 ngày") && (
-                  <div className={styles.itineraryDay}>
-                    <h3>Ngày 2: Hoàn thành hành trình</h3>
+                {Object.values(tour.itinerary).map((day, index) => (
+                  <div key={index} className={styles.itineraryDay}>
+                    <h3>{day.title}</h3>
                     <ul>
-                      <li>06:00 - Thức dậy, ngắm bình minh</li>
-                      <li>07:00 - Ăn sáng và dọn dẹp</li>
-                      <li>08:30 - Trekking và khám phá thêm</li>
-                      <li>11:00 - Thăm làng nghề địa phương</li>
-                      <li>12:30 - Bữa trưa chia tay</li>
-                      <li>14:00 - Khởi hành về điểm ban đầu</li>
-                      <li>17:00 - Kết thúc hành trình</li>
+                      {day.activities.map((activity, activityIndex) => (
+                        <li key={activityIndex}>{activity}</li>
+                      ))}
                     </ul>
                   </div>
-                )}
+                ))}
               </div>
             </section>
 
@@ -212,9 +211,9 @@ const TourDetail = () => {
             <section className={styles.section}>
               <h2>Hình ảnh tour</h2>
               <div className={styles.gallery}>
-                {galleryImages.map((image, index) => (
+                {tour.gallery.map((image, index) => (
                   <div key={index} className={styles.galleryItem}>
-                    <img src={image || "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"} alt={`Gallery ${index + 1}`} />
+                    <img src={image} alt={`Gallery ${index + 1}`} />
                   </div>
                 ))}
               </div>
@@ -227,17 +226,17 @@ const TourDetail = () => {
                 <div className={styles.requirementCard}>
                   <Shield className={styles.requirementIcon} />
                   <h3>Yêu cầu thể lực</h3>
-                  <p>Phù hợp với người có sức khỏe tốt, có thể đi bộ liên tục 3-4 giờ.</p>
+                  <p>{tour.requirements.fitness}</p>
                 </div>
                 <div className={styles.requirementCard}>
                   <Heart className={styles.requirementIcon} />
                   <h3>Độ tuổi khuyến nghị</h3>
-                  <p>Từ 16-55 tuổi. Trẻ em dưới 16 tuổi cần có người lớn đi kèm.</p>
+                  <p>{tour.requirements.ageRange}</p>
                 </div>
                 <div className={styles.requirementCard}>
                   <Camera className={styles.requirementIcon} />
                   <h3>Chuẩn bị</h3>
-                  <p>Giày trekking, áo mưa, kem chống nắng, thuốc cá nhân.</p>
+                  <p>{tour.requirements.preparation}</p>
                 </div>
               </div>
             </section>
@@ -260,14 +259,9 @@ const TourDetail = () => {
                 <div className={styles.formGroup}>
                   <label htmlFor="num-people">Số người tham gia</label>
                   <select id="num-people">
-                    <option value="1">1 người</option>
-                    <option value="2">2 người</option>
-                    <option value="3">3 người</option>
-                    <option value="4">4 người</option>
-                    <option value="5">5 người</option>
-                    <option value="6">6 người</option>
-                    <option value="7">7 người</option>
-                    <option value="8">8 người</option>
+                    {Array.from({ length: tour.maxPeople }, (_, i) => (
+                      <option key={i + 1} value={i + 1}>{i + 1} người</option>
+                    ))}
                   </select>
                 </div>
               </form>
