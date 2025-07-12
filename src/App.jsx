@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
 import Home from "./pages/Home/Home"
 import Tours from "./pages/Tours/Tours"
 import TourDetail from "./pages/TourDetail/TourDetail"
@@ -11,6 +12,7 @@ import Booking from "./pages/Booking/Booking"
 function App() {
   return (
     <div className="App">
+      <ScrollToTop />
       <Header />
       <main className="main-content" style={{ paddingTop: '80px' }}>
         <Routes>
