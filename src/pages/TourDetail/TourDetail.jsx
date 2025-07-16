@@ -17,6 +17,7 @@ import {
   MessageCircle,
 } from "lucide-react"
 import styles from "./TourDetail.module.scss"
+import { Pannellum } from "react-pannellum";
 
 const TourDetail = () => {
   const { id } = useParams()
@@ -68,6 +69,7 @@ const TourDetail = () => {
         </div>
       </div>
 
+
       {/* Hero Section */}
       <section className={styles.tourHero}>
         <div className={styles.heroBackground}>
@@ -105,6 +107,23 @@ const TourDetail = () => {
         </div>
       </section>
 
+            {/* 360° Panorama */}
+      <section className={styles.panoramaSection}>
+        <div className="container">
+          <h2>Khám phá 360°</h2>
+          <div className={styles.panoramaContainer}>
+            {/* <div className={styles.panoramaBadge}>360° View</div> */}
+            <iframe 
+              title="Panorama Viewer" 
+              scrolling="no" 
+              allowFullScreen 
+              src="https://renderstuff.com/tools/360-panorama-web-viewer-embed/?image=https://static.vecteezy.com/system/resources/previews/034/721/295/non_2x/360-degree-panoramic-winding-road-mountains-view-with-lake-hume-from-kurrajong-gap-lookout-located-between-bellbridge-and-bethanga-a-short-drive-from-albury-wodonga-victoria-australia-photo.jpg"
+            />
+            <div className={styles.panoramaOverlay}></div>
+          </div>
+        </div>
+      </section>
+
       <div className="container">
         <div className={styles.tourContent}>
           {/* Main Content */}
@@ -115,46 +134,47 @@ const TourDetail = () => {
               <p className={styles.description}>{tour.description}</p>
             </section>
 
+
             {/* Guide Info */}
             <section className={styles.section}>
               <h2>Hướng dẫn viên</h2>
-              <div style={{display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap'}}>
-                <div style={{minWidth: 180, textAlign: 'center'}}>
-                  <img src={tour.guide.avatar} alt={tour.guide.name} style={{width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', marginBottom: 12, border: '4px solid #10b981'}} />
-                  <div style={{fontWeight: 700, fontSize: 20}}>{tour.guide.name}</div>
-                  <div style={{color: '#64748b', fontSize: 14, margin: '4px 0'}}>{tour.guide.experience} · {tour.guide.age} tuổi</div>
-                  <div style={{margin: '4px 0'}}>
-                    <span style={{color: '#f59e0b', fontWeight: 600}}>★ {tour.guide.rating}</span> ({tour.guide.toursCompleted} tours)
+              <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                <div style={{ minWidth: 180, textAlign: 'center' }}>
+                  <img src={tour.guide.avatar} alt={tour.guide.name} style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', marginBottom: 12, border: '4px solid #10b981' }} />
+                  <div style={{ fontWeight: 700, fontSize: 20 }}>{tour.guide.name}</div>
+                  <div style={{ color: '#64748b', fontSize: 14, margin: '4px 0' }}>{tour.guide.experience} · {tour.guide.age} tuổi</div>
+                  <div style={{ margin: '4px 0' }}>
+                    <span style={{ color: '#f59e0b', fontWeight: 600 }}>★ {tour.guide.rating}</span> ({tour.guide.toursCompleted} tours)
                   </div>
-                  <div style={{margin: '4px 0'}}>
+                  <div style={{ margin: '4px 0' }}>
                     {tour.guide.languages.map((language, index) => (
-                      <span key={index} style={{background: '#e0f2fe', color: '#0284c7', borderRadius: 8, padding: '2px 8px', fontSize: 12, marginRight: 4}}>{language}</span>
+                      <span key={index} style={{ background: '#e0f2fe', color: '#0284c7', borderRadius: 8, padding: '2px 8px', fontSize: 12, marginRight: 4 }}>{language}</span>
                     ))}
                   </div>
                 </div>
-                <div style={{flex: 1, minWidth: 260}}>
-                  <div style={{marginBottom: 12, color: '#334155'}}>{tour.guide.bio}</div>
-                  <div style={{marginBottom: 12}}>
-                    <div style={{fontWeight: 600, marginBottom: 4}}>Chuyên môn</div>
-                    <div style={{display: 'flex', gap: 8, flexWrap: 'wrap'}}>
+                <div style={{ flex: 1, minWidth: 260 }}>
+                  <div style={{ marginBottom: 12, color: '#334155' }}>{tour.guide.bio}</div>
+                  <div style={{ marginBottom: 12 }}>
+                    <div style={{ fontWeight: 600, marginBottom: 4 }}>Chuyên môn</div>
+                    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                       {tour.guide.specialties.map((specialty, index) => (
-                        <span key={index} style={{background: '#d1fae5', color: '#047857', borderRadius: 16, padding: '4px 14px', fontSize: 14}}>{specialty}</span>
+                        <span key={index} style={{ background: '#d1fae5', color: '#047857', borderRadius: 16, padding: '4px 14px', fontSize: 14 }}>{specialty}</span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <div style={{fontWeight: 600, marginBottom: 4}}>Chứng chỉ & Bằng cấp</div>
-                    <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
+                    <div style={{ fontWeight: 600, marginBottom: 4 }}>Chứng chỉ & Bằng cấp</div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                       {tour.guide.certificates.map((cert, index) => (
-                        <div key={index} style={{display: 'flex', alignItems: 'center', background: '#f9fafb', borderRadius: 16, padding: 12, boxShadow: '0 1px 4px #0001'}}>
-                          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=80&h=80" alt="cert" style={{width: 56, height: 56, borderRadius: 12, objectFit: 'cover', marginRight: 16}} />
-                          <div style={{flex: 1}}>
-                            <div style={{fontWeight: 500}}>{cert.name}</div>
-                            <div style={{fontSize: 13, color: '#0284c7'}}>{cert.issuer}</div>
-                            <div style={{fontSize: 13, color: '#64748b'}}>Năm {cert.year}</div>
+                        <div key={index} style={{ display: 'flex', alignItems: 'center', background: '#f9fafb', borderRadius: 16, padding: 12, boxShadow: '0 1px 4px #0001' }}>
+                          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=80&h=80" alt="cert" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', marginRight: 16 }} />
+                          <div style={{ flex: 1 }}>
+                            <div style={{ fontWeight: 500 }}>{cert.name}</div>
+                            <div style={{ fontSize: 13, color: '#0284c7' }}>{cert.issuer}</div>
+                            <div style={{ fontSize: 13, color: '#64748b' }}>Năm {cert.year}</div>
                           </div>
                           {cert.verified && (
-                            <span style={{background: '#d1fae5', color: '#10b981', borderRadius: 8, padding: '2px 10px', fontSize: 13, fontWeight: 600}}>Verified</span>
+                            <span style={{ background: '#d1fae5', color: '#10b981', borderRadius: 8, padding: '2px 10px', fontSize: 13, fontWeight: 600 }}>Verified</span>
                           )}
                         </div>
                       ))}
@@ -163,6 +183,8 @@ const TourDetail = () => {
                 </div>
               </div>
             </section>
+
+
 
             {/* Highlights */}
             <section className={styles.section}>
@@ -219,6 +241,8 @@ const TourDetail = () => {
               </div>
             </section>
 
+
+
             {/* Safety & Requirements */}
             <section className={styles.section}>
               <h2>An toàn & Yêu cầu</h2>
@@ -266,7 +290,7 @@ const TourDetail = () => {
                 </div>
               </form>
 
-              <Link to={`/booking/${tour.id}`} className="btn primary mb-3" style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: '24px'}}>
+              <Link to={`/booking/${tour.id}`} className="btn primary mb-3" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: '24px' }}>
                 <Calendar size={20} />
                 Đặt tour ngay
               </Link>
