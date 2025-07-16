@@ -17,8 +17,6 @@ import {
   MessageCircle,
 } from "lucide-react"
 import styles from "./TourDetail.module.scss"
-import { Pannellum } from "react-pannellum";
-
 const TourDetail = () => {
   const { id } = useParams()
   const { tours } = useSelector((state) => state.tours)
