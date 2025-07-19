@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
+import AIChat from "./components/AIChat/AIChat"
+import AIChatButton from "./components/AIChatButton/AIChatButton"
 import Home from "./pages/Home/Home"
 import Tours from "./pages/Tours/Tours"
 import TourDetail from "./pages/TourDetail/TourDetail"
@@ -25,6 +27,8 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <AIChatButton />
+      <AIChat />
     </div>
   )
 }
