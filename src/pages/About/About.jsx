@@ -1,4 +1,4 @@
-import { Shield, Heart, Compass, Users, Award, Target } from "lucide-react"
+import { Shield, Heart, Compass, Users, Award, Target, MessageCircle, Eye } from "lucide-react"
 import styles from "./About.module.scss"
 
 const About = () => {
@@ -10,16 +10,31 @@ const About = () => {
         "Mọi cuộc phiêu lưu của Wandolo đều được xây dựng dựa trên các tiêu chuẩn an toàn nghiêm ngặt, từ thiết kế lộ trình, lựa chọn trang thiết bị cho đến huấn luyện hướng dẫn viên.",
     },
     {
+      icon: Compass,
+      title: "Tinh thần khám phá",
+      description:
+        "Wandolo truyền cảm hứng để khách hàng vượt qua vùng an toàn của bản thân bằng việc kết hợp những thử thách thể chất với khám phá văn hóa.",
+    },
+  ]
+
+  const differentiators = [
+    {
       icon: Heart,
       title: "Trải nghiệm văn hóa",
       description:
         "Wandolo không chỉ dẫn khách hàng đến các điểm đến đặc sắc mà còn lồng ghép những câu chuyện giàu ý nghĩa tại mỗi địa danh thông qua storytelling.",
     },
     {
-      icon: Compass,
-      title: "Tinh thần khám phá",
+      icon: MessageCircle,
+      title: "Chatbot",
       description:
-        "Wandolo truyền cảm hứng để khách hàng vượt qua vùng an toàn của bản thân bằng việc kết hợp những thử thách thể chất với khám phá văn hóa.",
+        "Hệ thống chatbot thông minh 24/7 hỗ trợ khách hàng mọi lúc, mọi nơi với thông tin chi tiết về tour và giải đáp thắc mắc nhanh chóng.",
+    },
+    {
+      icon: Eye,
+      title: "AR",
+      description:
+        "Công nghệ thực tế ảo tăng cường mang đến trải nghiệm du lịch độc đáo, cho phép khách hàng khám phá điểm đến trước khi đặt chân đến.",
     },
   ]
 
@@ -78,7 +93,7 @@ const About = () => {
         </div>
         <div className="container">
           <div className={styles.heroContent}>
-            <h1>Về Wandolo</h1>
+            <h1>Giới thiệu về Wandolo</h1>
             <p className={styles.heroTagline}>"Wander no Wondering" - Lang thang khám phá mà không lo âu</p>
             <p className={styles.heroDescription}>
               Chúng tôi là những người đam mê khám phá, mang đến những hành trình du lịch mạo hiểm an toàn, chân thực và
@@ -148,6 +163,25 @@ const About = () => {
                 </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Differentiators */}
+        <section className={`${styles.section} ${styles.differentiators}`}>
+          <div className={styles.sectionHeader}>
+            <h2>Điểm khác biệt</h2>
+            <p>Những yếu tố làm nên sự độc đáo của Wandolo</p>
+          </div>
+          <div className={styles.differentiatorsGrid}>
+            {differentiators.map((differentiator, index) => (
+              <div key={index} className={styles.differentiatorCard}>
+                <div className={styles.differentiatorIcon}>
+                  <differentiator.icon />
+                </div>
+                <h3>{differentiator.title}</h3>
+                <p>{differentiator.description}</p>
               </div>
             ))}
           </div>

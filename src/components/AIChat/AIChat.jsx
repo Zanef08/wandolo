@@ -568,7 +568,7 @@ Bạn có thể hỏi tôi về:
 • Giá cả các tour
 • Địa điểm cụ thể (Kon Tum, Gia Lai, Bảo Lộc, Đắk Lắk)
 • Thời gian tour (2 ngày, 3 ngày)
-• Độ khó của tour (Dễ, Trung bình, Khó)
+• Độ khó của tour (Dễ - Mức độ cho người bắt đầu, Trung bình, Khó)
 • Hướng dẫn viên (nam/nữ)
 • Lịch trình chi tiết
 • Điểm nổi bật

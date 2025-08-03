@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
     {
       icon: Users,
       title: "Nhóm nhỏ, riêng tư",
-      description: "Tối đa 8 người/tour để đảm bảo trải nghiệm cá nhân hóa và chăm sóc tận tình",
+      description: "Tối đa 10 người/tour để đảm bảo trải nghiệm cá nhân hóa và chăm sóc tận tình",
     },
     {
       icon: Award,

@@ -12,7 +12,7 @@ const TourCard = ({ tour }) => {
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case "Dễ":
+      case "Dễ - Mức độ cho người bắt đầu":
         return "green"
       case "Trung bình":
         return "orange"
@@ -41,6 +41,15 @@ const TourCard = ({ tour }) => {
           </div>
         </div>
 
+        {/* Activity Type Tags */}
+        <div className={styles.activityTags}>
+          {tour.activityType && tour.activityType.map((activity, index) => (
+            <span key={index} className={styles.activityTag}>
+              {activity}
+            </span>
+          ))}
+        </div>
+
         <p className={styles.description}>{tour.description}</p>
 
         <div className={styles.tourMeta}>
@@ -50,7 +59,7 @@ const TourCard = ({ tour }) => {
           </div>
           <div className={styles.metaItem}>
             <Users size={16} />
-            <span>Tối đa 8 người</span>
+            <span>Tối đa 10 người</span>
           </div>
           <div className={styles.metaItem}>
             <Star size={16} />
@@ -65,6 +74,7 @@ const TourCard = ({ tour }) => {
             </span>
           ))}
         </div>
+
 
         <div className={styles.cardFooter}>
           <div className={styles.pricing}>

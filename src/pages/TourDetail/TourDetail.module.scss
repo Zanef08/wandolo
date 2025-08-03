@@ -208,6 +208,43 @@
   }
 }
 
+.activityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  
+  @media (max-width: 768px) {
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+}
+
+.activityTag {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: var(--white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: var(--space-1) var(--space-3);
+  }
+}
+
 .tourContent {
   display: grid;
   grid-template-columns: 1fr 400px;

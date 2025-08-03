@@ -39,7 +39,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Địa chỉ văn phòng",
-      content: "Diamond Plaza, 34 Lê Duẩn, Phường Bến Nghé, Quận 1, TP.HCM",
+      content: "G Office - Saigon Mall (Cao Thắng Mall), 82 Cao Thắng, Phường 2, Quận 3, TP.HCM",
       link: "https://maps.google.com",
     },
     {
@@ -256,20 +256,20 @@ const Contact = () => {
             <div className={styles.mapContainer}>
               <div className={styles.mapWrapper}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241840887027!2d106.6983!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzM2LjgiTiAxMDbCsDQxJzUzLjgiRQ!5e0!3m2!1svi!2s!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241840887027!2d106.6983!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e3d8b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2s82+Cao+Th%E1%BA%AFng%2C+Ph%C6%B0%E1%BB%9Dng+2%2C+Qu%E1%BA%ADn+3%2C+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh%2C+Vietnam!5e0!3m2!1svi!2s!4v1234567890"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Văn phòng Wandolo - Diamond Plaza"
+                  title="Văn phòng Wandolo - G Office Saigon Mall"
                   className={styles.mapIframe}
                 ></iframe>
                 <div className={styles.mapOverlay}>
                   <h3>Văn phòng Wandolo</h3>
-                  <p>Diamond Plaza, 34 Lê Duẩn<br />
-                  Phường Bến Nghé, Quận 1, TP.HCM</p>
+                  <p>G Office - Saigon Mall (Cao Thắng Mall)<br />
+                  82 Cao Thắng, Phường 2, Quận 3, TP.HCM</p>
                 </div>
               </div>
             </div>

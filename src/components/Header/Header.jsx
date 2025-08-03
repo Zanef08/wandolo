@@ -1,7 +1,7 @@
 "use client"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { Menu, X, Mountain, Phone, MessageCircle } from "lucide-react"
+import { Menu, X, Phone, MessageCircle } from "lucide-react"
 import { toggleMobileMenu, closeMobileMenu } from "../../store/slices/uiSlice"
 import styles from "./Header.module.scss"
 
@@ -27,7 +27,7 @@ const Header = () => {
         <div className={styles.headerContent}>
           {/* Logo */}
           <Link to="/" className={styles.logo} onClick={handleLinkClick}>
-            <Mountain className={styles.logoIcon} />
+            <img src="/logo2.png" alt="Wandolo Logo" className={styles.logoIcon} />
             <span className={styles.logoText}>WANDOLO</span>
           </Link>
 

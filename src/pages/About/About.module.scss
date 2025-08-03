@@ -338,6 +338,103 @@
   }
 }
 
+.differentiators {
+  background-color: var(--white);
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    
+    h2 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: var(--space-6);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    p {
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      color: var(--slate-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  .differentiatorsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+  
+  .differentiatorCard {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: var(--space-8);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-green), #fbbf24);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-2xl);
+      
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+    
+    h3 {
+      font-size: clamp(1.3rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: var(--space-4);
+    }
+    
+    p {
+      font-size: clamp(0.95rem, 2.5vw, 1rem);
+      line-height: 1.7;
+      color: var(--slate-600);
+    }
+  }
+  
+  .differentiatorIcon {
+    width: 3rem;
+    height: 3rem;
+    color: var(--primary-green);
+    margin: 0 auto var(--space-6);
+    transition: var(--transition);
+    
+    &:hover {
+      transform: scale(1.1);
+      color: #fbbf24;
+    }
+  }
+}
+
 .statistics {
   .statsGrid {
     display: grid;

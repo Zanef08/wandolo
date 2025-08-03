@@ -44,7 +44,7 @@ const TourDetail = () => {
 
   const getDifficultyColor = (difficulty) => {
     switch (difficulty) {
-      case "Dễ":
+      case "Dễ - Mức độ cho người bắt đầu":
         return "green"
       case "Trung bình":
         return "orange"
@@ -53,6 +53,55 @@ const TourDetail = () => {
       default:
         return "gray"
     }
+  }
+
+  const getVO2MaxRequirements = (difficulty) => {
+    const requirements = {
+      "Dễ - Mức độ cho người bắt đầu": {
+        color: "#10b981",
+        name: "Dễ",
+        female: {
+          "20-29": 29,
+          "30-39": 27,
+          "40-49": 24.5
+        },
+        male: {
+          "20-29": 36.5,
+          "30-39": 35.5,
+          "40-49": 33.6
+        }
+      },
+      "Trung bình": {
+        color: "#f59e0b",
+        name: "Trung bình",
+        female: {
+          "20-29": 33,
+          "30-39": 31.5,
+          "40-49": 29
+        },
+        male: {
+          "20-29": 42.5,
+          "30-39": 41,
+          "40-49": 39
+        }
+      },
+      "Khó": {
+        color: "#ef4444",
+        name: "Khó",
+        female: {
+          "20-29": 37,
+          "30-39": 35,
+          "40-49": 33
+        },
+        male: {
+          "20-29": 46,
+          "30-39": 45,
+          "40-49": 43
+        }
+      }
+    }
+
+    return requirements[difficulty] || requirements["Dễ - Mức độ cho người bắt đầu"]
   }
 
   return (
@@ -101,20 +150,31 @@ const TourDetail = () => {
                 <span>{tour.rating} ({tour.reviewCount} đánh giá)</span>
               </div>
             </div>
+
+            {/* Activity Type Tags */}
+            {tour.activityType && (
+              <div className={styles.activityTags}>
+                {tour.activityType.map((activity, index) => (
+                  <span key={index} className={styles.activityTag}>
+                    {activity}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-            {/* 360° Panorama */}
+      {/* 360° Panorama */}
       <section className={styles.panoramaSection}>
         <div className="container">
           <h2>Khám phá 360°</h2>
           <div className={styles.panoramaContainer}>
             {/* <div className={styles.panoramaBadge}>360° View</div> */}
-            <iframe 
-              title="Panorama Viewer" 
-              scrolling="no" 
-              allowFullScreen 
+            <iframe
+              title="Panorama Viewer"
+              scrolling="no"
+              allowFullScreen
               src="https://renderstuff.com/tools/360-panorama-web-viewer-embed/?image=https://static.vecteezy.com/system/resources/previews/034/721/295/non_2x/360-degree-panoramic-winding-road-mountains-view-with-lake-hume-from-kurrajong-gap-lookout-located-between-bellbridge-and-bethanga-a-short-drive-from-albury-wodonga-victoria-australia-photo.jpg"
             />
             <div className={styles.panoramaOverlay}></div>
@@ -241,24 +301,320 @@ const TourDetail = () => {
 
 
 
+
             {/* Safety & Requirements */}
             <section className={styles.section}>
               <h2>An toàn & Yêu cầu</h2>
+
+              {/* Preparation Card - Full Width */}
+              <div style={{
+                background: 'var(--slate-50)',
+                padding: 'var(--space-6)',
+                borderRadius: 'var(--radius-xl)',
+                border: '1px solid var(--slate-200)',
+                marginBottom: 'var(--space-6)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--space-4)'
+              }}>
+                <div className={styles.requirementIcon} style={{
+                  color: 'var(--primary-green)',
+                  margin: '0',
+                  flexShrink: 0
+                }}>
+                  <Camera size={24} />
+                </div>
+                <div style={{ flex: '1' }}>
+                  <div style={{
+                    fontSize: '14px',
+                    color: 'var(--slate-700)',
+                    fontWeight: '600',
+                    marginBottom: '4px'
+                  }}>
+                    Chuẩn bị
+                  </div>
+                  <div style={{
+                    fontSize: '13px',
+                    color: 'var(--slate-600)',
+                    lineHeight: '1.5'
+                  }}>
+                    {tour.requirements.preparation}
+                  </div>
+                </div>
+              </div>
+
               <div className={styles.requirements}>
+                
+                {/* Health Requirements Card */}
                 <div className={styles.requirementCard}>
                   <Shield className={styles.requirementIcon} />
-                  <h3>Yêu cầu thể lực</h3>
-                  <p>{tour.requirements.fitness}</p>
+                  <h3>Yêu cầu sức khỏe</h3>
+                  <div style={{ fontSize: '14px', lineHeight: '1.6', color: '#374151' }}>
+                    <div style={{
+                      background: 'linear-gradient(135deg, #f0fdf4, #dcfce7)',
+                      padding: '16px',
+                      borderRadius: '12px',
+                      border: '2px solid #10b981',
+                      marginBottom: '12px'
+                    }}>
+                      <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        gap: '16px'
+                      }}>
+                        <div style={{
+                          background: 'white',
+                          padding: '12px',
+                          borderRadius: '8px',
+                          border: '1px solid #10b981',
+                          textAlign: 'center'
+                        }}>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#059669',
+                            fontWeight: '600',
+                            marginBottom: '4px',
+                            textTransform: 'uppercase'
+                          }}>
+                            Huyết áp
+                          </div>
+                          <div style={{
+                            fontSize: '16px',
+                            color: '#047857',
+                            fontWeight: '700'
+                          }}>
+                            90/60 - 120/80 mmHg
+                          </div>
+                        </div>
+
+                        <div style={{
+                          background: 'white',
+                          padding: '12px',
+                          borderRadius: '8px',
+                          border: '1px solid #10b981',
+                          textAlign: 'center'
+                        }}>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#059669',
+                            fontWeight: '600',
+                            marginBottom: '4px',
+                            textTransform: 'uppercase'
+                          }}>
+                            Nhịp tim nghỉ
+                          </div>
+                          <div style={{
+                            fontSize: '16px',
+                            color: '#047857',
+                            fontWeight: '700'
+                          }}>
+                            60-100 bpm
+                          </div>
+                        </div>
+                      </div>
+
+                      <div style={{
+                        background: 'white',
+                        padding: '12px',
+                        borderRadius: '8px',
+                        border: '1px solid #10b981',
+                        marginTop: '12px',
+                        textAlign: 'center'
+                      }}>
+                        <div style={{
+                          fontSize: '12px',
+                          color: '#059669',
+                          fontWeight: '600',
+                          marginBottom: '4px',
+                          textTransform: 'uppercase'
+                        }}>
+                          Thời gian vận động
+                        </div>
+                        <div style={{
+                          fontSize: '16px',
+                          color: '#047857',
+                          fontWeight: '700'
+                        }}>
+                          30+ phút liên tục
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                {/* VO2 Max Card */}
                 <div className={styles.requirementCard}>
-                  <Heart className={styles.requirementIcon} />
-                  <h3>Độ tuổi khuyến nghị</h3>
-                  <p>{tour.requirements.ageRange}</p>
+                  <div style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: `linear-gradient(135deg, ${getVO2MaxRequirements(tour.difficulty).color}, ${getVO2MaxRequirements(tour.difficulty).color}dd)`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 16px'
+                  }}>
+                    <div style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '50%',
+                      background: 'white',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '16px',
+                      fontWeight: 'bold',
+                      border: `2px solid ${getVO2MaxRequirements(tour.difficulty).color}`,
+                      color: getVO2MaxRequirements(tour.difficulty).color
+                    }}>
+                      VO₂
+                    </div>
+                  </div>
+                                    <h3>
+                    Chỉ số <span style={{ 
+                      fontWeight: '800',
+                      fontSize: '1.1em',
+                      color: getVO2MaxRequirements(tour.difficulty).color,
+                      textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+                    }}>VO₂</span> max <span style={{ 
+                      background: getVO2MaxRequirements(tour.difficulty).color, 
+                      color: 'white', 
+                      padding: '4px 12px', 
+                      borderRadius: '16px', 
+                      fontSize: '12px', 
+                      fontWeight: '600',
+                      display: 'inline-block',
+                      marginLeft: '8px',
+                      boxShadow: '0 1px 4px rgba(0,0,0,0.1)'
+                    }}>
+                      {getVO2MaxRequirements(tour.difficulty).name}
+                    </span>
+                  </h3>
+
+                  <div style={{ fontSize: '13px', lineHeight: '1.6' }}>
+                    <div style={{
+                      background: `linear-gradient(135deg, ${getVO2MaxRequirements(tour.difficulty).color}15, ${getVO2MaxRequirements(tour.difficulty).color}08)`,
+                      padding: '16px',
+                      borderRadius: '12px',
+                      border: `2px solid ${getVO2MaxRequirements(tour.difficulty).color}`
+                    }}>
+                      <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        gap: '16px'
+                      }}>
+                        <div style={{
+                          background: 'white',
+                          padding: '12px',
+                          borderRadius: '8px',
+                          border: `1px solid ${getVO2MaxRequirements(tour.difficulty).color}30`,
+                          textAlign: 'center'
+                        }}>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#ec4899',
+                            fontWeight: '700',
+                            marginBottom: '8px',
+                            textTransform: 'uppercase'
+                          }}>
+                            Nữ
+                          </div>
+                          <div style={{ fontSize: '14px', color: '#374151', lineHeight: '1.4' }}>
+                            <div style={{ marginBottom: '4px' }}>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>20-29t:</span>
+                              <br />
+                              <strong style={{ color: '#ec4899', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).female["20-29"]}</strong>
+                            </div>
+                            <div style={{ marginBottom: '4px' }}>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>30-39t:</span>
+                              <br />
+                              <strong style={{ color: '#ec4899', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).female["30-39"]}</strong>
+                            </div>
+                            <div>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>40-49t:</span>
+                              <br />
+                              <strong style={{ color: '#ec4899', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).female["40-49"]}</strong>
+                            </div>
+                            <div style={{ fontSize: '10px', color: '#9ca3af', marginTop: '4px' }}>ml/km/phút</div>
+                          </div>
+                        </div>
+
+                        <div style={{
+                          background: 'white',
+                          padding: '12px',
+                          borderRadius: '8px',
+                          border: `1px solid ${getVO2MaxRequirements(tour.difficulty).color}30`,
+                          textAlign: 'center'
+                        }}>
+                          <div style={{
+                            fontSize: '12px',
+                            color: '#3b82f6',
+                            fontWeight: '700',
+                            marginBottom: '8px',
+                            textTransform: 'uppercase'
+                          }}>
+                            Nam
+                          </div>
+                          <div style={{ fontSize: '14px', color: '#374151', lineHeight: '1.4' }}>
+                            <div style={{ marginBottom: '4px' }}>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>20-29t:</span>
+                              <br />
+                              <strong style={{ color: '#3b82f6', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).male["20-29"]}</strong>
+                            </div>
+                            <div style={{ marginBottom: '4px' }}>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>30-39t:</span>
+                              <br />
+                              <strong style={{ color: '#3b82f6', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).male["30-39"]}</strong>
+                            </div>
+                            <div>
+                              <span style={{ fontSize: '11px', color: '#6b7280' }}>40-49t:</span>
+                              <br />
+                              <strong style={{ color: '#3b82f6', fontSize: '16px' }}>≥{getVO2MaxRequirements(tour.difficulty).male["40-49"]}</strong>
+                            </div>
+                            <div style={{ fontSize: '10px', color: '#9ca3af', marginTop: '4px' }}>ml/km/phút</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.requirementCard}>
-                  <Camera className={styles.requirementIcon} />
-                  <h3>Chuẩn bị</h3>
-                  <p>{tour.requirements.preparation}</p>
+              </div>
+
+
+              {/* Note Section */}
+              <div style={{
+                background: 'linear-gradient(135deg, #fefce8, #fef3c7)',
+                padding: 'var(--space-6)',
+                borderRadius: 'var(--radius-xl)',
+                border: '2px solid #f59e0b',
+                marginTop: 'var(--space-6)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--space-4)'
+              }}>
+                <div className={styles.requirementIcon} style={{
+                  color: '#d97706',
+                  margin: '0',
+                  flexShrink: 0
+                }}>
+                  <MessageCircle size={24} />
+                </div>
+                <div style={{ flex: '1' }}>
+                  <div style={{
+                    fontSize: '14px',
+                    color: '#92400e',
+                    fontWeight: '600',
+                    marginBottom: '4px'
+                  }}>
+                    Lưu ý quan trọng
+                  </div>
+                  <div style={{
+                    fontSize: '13px',
+                    color: '#92400e',
+                    lineHeight: '1.5'
+                  }}>
+                    Sẽ có bài test sức khỏe nhanh trước khi đặt tour để đánh giá thể lực và chọn cấp độ phù hợp.
+                  </div>
                 </div>
               </div>
             </section>

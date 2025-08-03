@@ -34,8 +34,9 @@ const Tours = () => {
     const matchesDifficulty = !filters.difficulty || tour.difficulty === filters.difficulty
     const matchesDuration = !filters.duration || tour.duration.includes(filters.duration)
     const matchesPrice = tour.price >= filters.priceRange[0] && tour.price <= filters.priceRange[1]
+    const matchesActivityType = !filters.activityType || (tour.activityType && tour.activityType.includes(filters.activityType))
 
-    return matchesSearch && matchesDifficulty && matchesDuration && matchesPrice
+    return matchesSearch && matchesDifficulty && matchesDuration && matchesPrice && matchesActivityType
   })
 
   return (
@@ -48,7 +49,7 @@ const Tours = () => {
         </div>
         <div className="container">
           <div className={styles.heroContent}>
-            <h1>Tours mạo hiểm</h1>
+            <h1>Tours trekking</h1>
             <p>Khám phá Tây Nguyên qua những hành trình độc đáo, an toàn và đầy cảm hứng</p>
           </div>
         </div>
@@ -83,7 +84,7 @@ const Tours = () => {
                 <div className="select-wrapper">
                   <select value={filters.difficulty} onChange={(e) => handleFilterChange("difficulty", e.target.value)} className="select-primary">
                     <option value="">Tất cả độ khó</option>
-                    <option value="Dễ" className="option-highlighted">Dễ - Phù hợp mọi lứa tuổi</option>
+                    <option value="Dễ - Mức độ cho người bắt đầu" className="option-highlighted">Dễ - Mức độ cho người bắt đầu</option>
                     <option value="Trung bình" className="option-highlighted">Trung bình - Cần thể lực tốt</option>
                     <option value="Khó" className="option-highlighted">Khó - Dành cho người có kinh nghiệm</option>
                   </select>
@@ -97,6 +98,19 @@ const Tours = () => {
                     <option value="">Tất cả thời gian</option>
                     <option value="2 ngày" className="option-highlighted">2 ngày 1 đêm</option>
                     <option value="3 ngày" className="option-highlighted">3 ngày 2 đêm</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className={styles.filterGroup}>
+                <label>Loại hoạt động:</label>
+                <div className="select-wrapper">
+                  <select value={filters.activityType} onChange={(e) => handleFilterChange("activityType", e.target.value)} className="select-primary">
+                    <option value="">Tất cả hoạt động</option>
+                    <option value="Trekking" className="option-highlighted">Trekking</option>
+                    <option value="Camping" className="option-highlighted">Camping</option>
+                    <option value="Caving" className="option-highlighted">Caving</option>
+                    <option value="Kayaking" className="option-highlighted">Kayaking</option>
                   </select>
                 </div>
               </div>
@@ -166,9 +180,9 @@ const Tours = () => {
           )}
 
           {/* Results */}
-          <div className={styles.resultsHeader}>
+          {/* <div className={styles.resultsHeader}>
             <h2>Tìm thấy {filteredTours.length} tours</h2>
-          </div>
+          </div> */}
 
           {/* Tours Grid */}
           <div className={styles.toursGrid}>

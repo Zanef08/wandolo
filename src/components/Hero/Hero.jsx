@@ -12,7 +12,7 @@ const Hero = () => {
       <div className={styles.heroInner}>
         <div className={styles.heroTextBlock}>
           <h1 className={styles.heroTitle}>
-            Đi sẽ <span className={styles.highlight}>bất ngờ</span>
+            An toàn <span className={styles.highlight}>bức phá</span>
           </h1>
           <p className={styles.heroSubtitle}>
             Khám phá Tây Nguyên qua những hành trình mạo hiểm an toàn, kết nối sâu sắc với văn hóa bản địa

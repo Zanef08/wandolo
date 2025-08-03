@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Mountain, Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
 import styles from "./Footer.module.scss"
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className={styles.footerSection}>
             <Link to="/" className={styles.footerLogo}>
-              <Mountain className={styles.logoIcon} />
+              <img src="/logo2.png" alt="Wandolo Logo" className={styles.logoIcon} />
               <span>WANDOLO</span>
             </Link>
             <p className={styles.tagline}>"Wander no Wondering" - Lang thang khám phá mà không lo âu</p>
@@ -24,7 +24,7 @@ const Footer = () => {
             <h4>Liên kết nhanh</h4>
             <ul className={styles.linkList}>
               <li>
-                <Link to="/tours">Tours mạo hiểm</Link>
+                <Link to="/tours">Tours trekking</Link>
               </li>
               <li>
                 <Link to="/about">Về chúng tôi</Link>
@@ -69,7 +69,7 @@ const Footer = () => {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <MapPin size={16} />
-                <span>Diamond Plaza, 34 Lê Duẩn, Q1, TP.HCM</span>
+                <span>G Office - Saigon Mall (Cao Thắng Mall), 82 Cao Thắng, Phường 2, Quận 3, TP.HCM</span>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={16} />
