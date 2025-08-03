@@ -25,7 +25,6 @@ const Booking = () => {
     specialRequests: "",
   })
   const [addOns, setAddOnsState] = useState({
-    insurance: true,
     equipment: false,
     photography: false,
   })
@@ -71,7 +70,6 @@ const Booking = () => {
 
   const calculateTotal = () => {
     let total = tour.price * participants
-    if (addOns.insurance) total += 200000 * participants
     if (addOns.equipment) total += 500000 * participants
     if (addOns.photography) total += 800000 * participants
     return total
@@ -245,6 +243,8 @@ const Booking = () => {
       
       if (currentStep < 5) {
         setCurrentStep(currentStep + 1)
+        // Scroll to top when moving to next step
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     } catch (error) {
       console.error('Error in handleNextStep:', error)
@@ -255,6 +255,8 @@ const Booking = () => {
     setWarningData(null)
     if (currentStep < 5) {
       setCurrentStep(currentStep + 1)
+      // Scroll to top when moving to next step
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -265,6 +267,8 @@ const Booking = () => {
   const handlePrevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1)
+      // Scroll to top when moving to previous step
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -380,6 +384,28 @@ const Booking = () => {
                     </div>
 
                     <div className={styles.formSection}>
+                      <h3>Phương pháp tính toán</h3>
+                      <div className="form-group">
+                        <label>Chọn công thức tính VO₂ Max *</label>
+                        <select
+                          value={vo2TestData.testMethod}
+                          onChange={(e) => handleVO2TestChange("testMethod", e.target.value)}
+                          required
+                          className="select-primary"
+                        >
+                          <option value="formula1">Công thức 1: Dựa trên nhịp tim lúc nghỉ ngơi</option>
+                          <option value="formula2">Công thức 2: Dựa trên thời gian đi bộ 1 dặm</option>
+                        </select>
+                        <small>
+                          {vo2TestData.testMethod === "formula1" 
+                            ? "VO₂ max = 15.3 × (MHR / RHR) - Dựa trên nhịp tim lúc nghỉ ngơi"
+                            : "VO₂ max = 132.853 - 0.0769×W - 0.3877×A + 6.315×G - 3.2649×T - 0.156×H - Dựa trên thời gian đi bộ"
+                          }
+                        </small>
+                      </div>
+                    </div>
+
+                    <div className={styles.formSection}>
                       <h3>Thông tin cá nhân</h3>
                       <div className={styles.formRow}>
                         <div className="form-group">
@@ -481,27 +507,6 @@ const Booking = () => {
                       </div>
                     </div>
 
-                    <div className={styles.formSection}>
-                      <h3>Phương pháp tính toán</h3>
-                      <div className="form-group">
-                        <label>Chọn công thức tính VO₂ Max *</label>
-                        <select
-                          value={vo2TestData.testMethod}
-                          onChange={(e) => handleVO2TestChange("testMethod", e.target.value)}
-                          required
-                          className="select-primary"
-                        >
-                          <option value="formula1">Công thức 1: Dựa trên nhịp tim lúc nghỉ ngơi</option>
-                          <option value="formula2">Công thức 2: Dựa trên thời gian đi bộ 1 dặm</option>
-                        </select>
-                        <small>
-                          {vo2TestData.testMethod === "formula1" 
-                            ? "VO₂ max = 15.3 × (MHR / RHR) - Dựa trên nhịp tim lúc nghỉ ngơi"
-                            : "VO₂ max = 132.853 - 0.0769×W - 0.3877×A + 6.315×G - 3.2649×T - 0.156×H - Dựa trên thời gian đi bộ"
-                          }
-                        </small>
-                      </div>
-                    </div>
                   </div>
 
                   <div className={styles.vo2Actions}>
@@ -850,22 +855,6 @@ const Booking = () => {
                   <div className={styles.addOns}>
                     <div className={styles.addOnItem}>
                       <div className={styles.addOnInfo}>
-                        <h3>Bảo hiểm du lịch mở rộng</h3>
-                        <p>Bảo hiểm toàn diện với mức bồi thường lên đến 100 triệu đồng</p>
-                        <span className={styles.addOnPrice}>+200.000 VNĐ/người</span>
-                      </div>
-                      <label className={styles.checkbox}>
-                        <input
-                          type="checkbox"
-                          checked={addOns.insurance}
-                          onChange={(e) => handleAddOnChange("insurance", e.target.checked)}
-                        />
-                        <span className={styles.checkmark}></span>
-                      </label>
-                    </div>
-
-                    <div className={styles.addOnItem}>
-                      <div className={styles.addOnInfo}>
                         <h3>Thuê thiết bị chuyên dụng</h3>
                         <p>Bao gồm: gậy trekking, đèn pin, áo mưa, balo chuyên dụng</p>
                         <span className={styles.addOnPrice}>+500.000 VNĐ/người</span>
@@ -1009,33 +998,26 @@ const Booking = () => {
                   <span>{participants} người</span>
                 </div>
 
-                <div className={styles.priceBreakdown}>
-                  <div className={styles.priceItem}>
-                    <span>Giá tour ({participants} người)</span>
-                    <span>{formatPrice(tour.price * participants)}</span>
+                                  <div className={styles.priceBreakdown}>
+                    <div className={styles.priceItem}>
+                      <span>Giá tour ({participants} người)</span>
+                      <span>{formatPrice(tour.price * participants)}</span>
+                    </div>
+
+                    {addOns.equipment && (
+                      <div className={styles.priceItem}>
+                        <span>Thuê thiết bị</span>
+                        <span>{formatPrice(500000 * participants)}</span>
+                      </div>
+                    )}
+
+                    {addOns.photography && (
+                      <div className={styles.priceItem}>
+                        <span>Chụp ảnh chuyên nghiệp</span>
+                        <span>{formatPrice(800000 * participants)}</span>
+                      </div>
+                    )}
                   </div>
-
-                  {addOns.insurance && (
-                    <div className={styles.priceItem}>
-                      <span>Bảo hiểm mở rộng</span>
-                      <span>{formatPrice(200000 * participants)}</span>
-                    </div>
-                  )}
-
-                  {addOns.equipment && (
-                    <div className={styles.priceItem}>
-                      <span>Thuê thiết bị</span>
-                      <span>{formatPrice(500000 * participants)}</span>
-                    </div>
-                  )}
-
-                  {addOns.photography && (
-                    <div className={styles.priceItem}>
-                      <span>Chụp ảnh chuyên nghiệp</span>
-                      <span>{formatPrice(800000 * participants)}</span>
-                    </div>
-                  )}
-                </div>
 
                 <div className={styles.totalPrice}>
                   <span>Tổng cộng:</span>

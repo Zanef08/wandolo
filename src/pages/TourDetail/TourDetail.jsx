@@ -206,7 +206,7 @@ const TourDetail = () => {
                   </div>
                   <div style={{ margin: '4px 0' }}>
                     {tour.guide.languages.map((language, index) => (
-                      <span key={index} style={{ background: '#e0f2fe', color: '#0284c7', borderRadius: 8, padding: '2px 8px', fontSize: 12, marginRight: 4 }}>{language}</span>
+                      <span key={index} style={{ background: '#dbeafe', color: '#1e40af', borderRadius: 8, padding: '2px 8px', fontSize: 12, marginRight: 4 }}>{language}</span>
                     ))}
                   </div>
                 </div>
@@ -228,7 +228,7 @@ const TourDetail = () => {
                           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=80&h=80" alt="cert" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', marginRight: 16 }} />
                           <div style={{ flex: 1 }}>
                             <div style={{ fontWeight: 500 }}>{cert.name}</div>
-                            <div style={{ fontSize: 13, color: '#0284c7' }}>{cert.issuer}</div>
+                            <div style={{ fontSize: 13, color: '#1e40af' }}>{cert.issuer}</div>
                             <div style={{ fontSize: 13, color: '#64748b' }}>Năm {cert.year}</div>
                           </div>
                           {cert.verified && (
