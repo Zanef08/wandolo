@@ -35,7 +35,7 @@ const initialState = {
       },
       guide: {
         name: "Nguyễn Văn A",
-        avatar: "https://sdmntprwestus.oaiusercontent.com/files/00000000-806c-6230-a23e-30ec39521a83/raw?se=2025-08-04T14%3A37%3A53Z&sp=r&sv=2024-08-04&sr=b&scid=c983fda8-21ce-50ef-a72b-5e997686cceb&skoid=789f404f-91a9-4b2f-932c-c44965c11d82&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-04T10%3A12%3A13Z&ske=2025-08-05T10%3A12%3A13Z&sks=b&skv=2024-08-04&sig=AJQ5IoyAE6Sx3/dlJiGiVrrJ6zp9ctb8On1a2oL0Hv4%3D",
+        avatar: "/tg1.png",
         experience: "5 năm kinh nghiệm",
         age: 32,
         rating: 5.0,
@@ -143,7 +143,7 @@ const initialState = {
       },
       guide: {
         name: "Trần Văn B",
-        avatar: "https://api.deepai.org/job-view-file/3001c7fd-9778-4ffa-a695-f8251495180c/outputs/output.jpg",
+        avatar: "/tg2.png",
         experience: "7 năm kinh nghiệm",
         age: 28,
         rating: 4.9,
@@ -259,7 +259,7 @@ const initialState = {
       },
       guide: {
         name: "Lê Văn C",
-        avatar: "https://api.deepai.org/job-view-file/05bd549a-9457-4dfd-ba16-57ddc9f45aac/outputs/output.jpg",
+        avatar: "/tg3.png",
         experience: "10 năm kinh nghiệm",
         age: 35,
         rating: 4.7,
@@ -360,7 +360,7 @@ const initialState = {
       },
       guide: {
         name: "Phạm Văn D",
-        avatar: "https://api.deepai.org/job-view-file/64f9a0a8-9f3e-45e5-915b-b12d39568497/outputs/output.jpg",
+        avatar: "/tg4.png",
         experience: "8 năm kinh nghiệm",
         age: 30,
         rating: 5.0,
@@ -480,7 +480,7 @@ const initialState = {
       },
       guide: {
         name: "Hoàng Văn E",
-        avatar: "https://api.deepai.org/job-view-file/a1bb8bc7-d372-4ec6-9ef5-e84f05a83181/outputs/output.jpg",
+        avatar: "/tg5.png",
         experience: "12 năm kinh nghiệm",
         age: 38,
         rating: 5.0,
