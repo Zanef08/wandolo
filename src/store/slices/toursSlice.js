@@ -10,7 +10,7 @@ const initialState = {
       difficulty: "Dễ - Mức độ cho người bắt đầu",
       price: 3200000,
       activityType: ["Trekking"],
-      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+      image: "https://dulichvietnam.com.vn/vnt_upload/news/03_2022/thi_tran_d_ran_don_duong_9.jpg",
       description:
         "Khám phá văn hóa Churu độc đáo tại Đơn Dương, trải nghiệm cuộc sống bản địa và thưởng thức ẩm thực truyền thống.",
       highlights: [
@@ -95,10 +95,10 @@ const initialState = {
         dinner: "200k/2 ngày"
       },
       gallery: [
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"
+        "https://dulichvietnam.com.vn/vnt_upload/news/03_2022/thi_tran_d_ran_don_duong_9.jpg",
+        "https://halotravel.vn/wp-content/uploads/2020/11/thi-tran-dran-4-e1606627095129.jpg",
+        "https://dulichseatravel.com/wp-content/uploads/2025/01/z6249988831404_2ae35b2c866af9b9033d72447b076634.jpg",
+        "https://halotravel.vn/wp-content/uploads/2020/11/thi-tran-dran-3-e1606627164642.jpg"
       ],
       requirements: {
         fitness: "Phù hợp với người có sức khỏe tốt, có thể đi bộ liên tục 3-4 giờ.",
@@ -117,7 +117,7 @@ const initialState = {
       difficulty: "Trung bình",
       price: 4300000,
       activityType: ["Trekking", "Camping"],
-      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+      image: "https://cdn.tgdd.vn/Files/2023/09/19/1548161/du-lich-chu-pah-gia-lai-6-dia-diem-dung-nen-bo-lo-202309192309077363.jpg",
       description:
         "Hành trình khám phá Chư Nâm - viên ngọc ẩn giữa đại ngàn Tây Nguyên, kết hợp trekking và tìm hiểu văn hóa Jrai.",
       highlights: [
@@ -212,10 +212,10 @@ const initialState = {
       },
       notes: "Đổi giờ khởi hành, chỉ ở 1 đêm tại homestay - ĐÃ SỬA",
       gallery: [
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"
+        "https://cdn.tgdd.vn/Files/2023/09/19/1548161/du-lich-chu-pah-gia-lai-6-dia-diem-dung-nen-bo-lo-202309192309077363.jpg",
+        "https://cdn.tgdd.vn/Files/2023/09/19/1548161/du-lich-chu-pah-gia-lai-6-dia-diem-dung-nen-bo-lo-202309192309504286.jpg",
+        "https://images.vietnamtourism.gov.vn/vn/images/2022/thang_6/2306.chupah1.jpg",
+        "https://gialai.info/wp-content/uploads/2023/01/nha-rong-chu-dang-gia-chu-pah-review.jpg"
       ],
       requirements: {
         fitness: "Phù hợp với người có sức khỏe tốt, có thể đi bộ liên tục 4-5 giờ.",
@@ -234,7 +234,7 @@ const initialState = {
       difficulty: "Dễ - Mức độ cho người bắt đầu",
       price: 3000000,
       activityType: ["Trekking"],
-      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+      image: "https://diadiembaoloc.net/wp-content/uploads/2024/09/lang-may-blao-17.jpg",
       description:
         "Trải nghiệm văn hóa trà tại B'Lao, khám phá những đồi chè xanh mướt và tìm hiểu quy trình sản xuất trà.",
       highlights: [
@@ -312,10 +312,10 @@ const initialState = {
       },
       notes: "Đổi giờ khởi hành, chỉ ở 1 đêm tại homestay - ĐÃ SỬA",
       gallery: [
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"
+        "https://diadiembaoloc.net/wp-content/uploads/2024/09/lang-may-blao-17.jpg",
+        "https://diadiembaoloc.net/wp-content/uploads/2021/02/doi-bat-up-1.jpg",
+        "https://baocantho.com.vn/image/fckeditor/upload/2018/20180406/images/thac-doi-cho.jpg",
+        "https://tinbds.com/images/place/0/iq4.jpg"
       ],
       requirements: {
         fitness: "Phù hợp với mọi lứa tuổi, có thể đi bộ nhẹ nhàng.",
@@ -334,7 +334,7 @@ const initialState = {
       difficulty: "Khó",
       price: 4500000,
       activityType: ["Trekking", "Caving", "Kayaking"],
-      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+      image: "https://vcdn1-dulich.vnecdn.net/2022/04/20/thacDakLak02-1650454521-7409-1650455161.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=6vZa8c69p_IJvwjcOJE3hg",
       description:
         "Hành trình mạo hiểm khám phá Vườn Quốc Gia Yok Đôn, tìm hiểu về voi rừng và hệ sinh thái đa dạng.",
       highlights: [
@@ -433,10 +433,10 @@ const initialState = {
         }
       },
       gallery: [
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"
+        "https://vcdn1-dulich.vnecdn.net/2022/04/20/thacDakLak02-1650454521-7409-1650455161.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=6vZa8c69p_IJvwjcOJE3hg",
+        "https://mediaim.expedia.com/destination/1/874fef5fe30e11fa8f754987ff1d43d5.jpg",
+        "https://i2.ex-cdn.com/crystalbay.com/files/content/2024/06/24/du-lich-dak-lak-2-0915.jpg",
+        "https://cdn.tgdd.vn/Files/2023/10/13/1551691/du-lich-dak-lak-cam-nang-du-lich-va-30-dia-diem-dep-hap-dan-202310181131455549.jpg"
       ],
       requirements: {
         fitness: "Yêu cầu thể lực tốt, có thể đi bộ liên tục 6-8 giờ trên địa hình khó.",
@@ -455,7 +455,7 @@ const initialState = {
       difficulty: "Khó",
       price: 4500000,
       activityType: ["Trekking", "Camping"],
-      image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
+      image: "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/11/gioi-thieu-3-kham-pha-nui-ngoc-linh-kon-tum-vntrip.vn_.jpg",
       description:
         "Thử thách bản thân với hành trình chinh phục đỉnh Ngọc Linh - nóc nhà Trường Sơn Nam, khám phá làng nghề rèn sắt truyền thống.",
       highlights: [
@@ -551,10 +551,10 @@ const initialState = {
         }
       },
       gallery: [
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto"
+        "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/11/gioi-thieu-3-kham-pha-nui-ngoc-linh-kon-tum-vntrip.vn_.jpg",
+        "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/05_2020/du-lich-nui-ngoc-linh-kon-tum-5.jpg",
+        "https://hub2s.com/uploads/toan-canh-day-nui-ngoc-linh.jpg",
+        "https://images.vietnamtourism.gov.vn/vn/images/2021/kontum.nuingoclinh.jpg"
       ],
       requirements: {
         fitness: "Yêu cầu thể lực rất tốt, có thể leo núi liên tục 8-10 giờ.",
