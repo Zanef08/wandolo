@@ -2,6 +2,7 @@
 
 import { useParams, Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import { useState, useEffect } from "react"
 import {
   MapPin,
   Clock,
@@ -15,12 +16,19 @@ import {
   Calendar,
   Phone,
   MessageCircle,
+  X,
 } from "lucide-react"
 import styles from "./TourDetail.module.scss"
+
 const TourDetail = () => {
   const { id } = useParams()
   const { tours } = useSelector((state) => state.tours)
   const tour = tours.find((t) => t.id === Number.parseInt(id))
+  
+  // Gallery slider state
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [fullscreenImage, setFullscreenImage] = useState("")
 
   if (!tour) {
     return (
@@ -104,6 +112,62 @@ const TourDetail = () => {
     return requirements[difficulty] || requirements["Dễ - Mức độ cho người bắt đầu"]
   }
 
+  // Gallery slider functions
+  const navigateSlide = (direction) => {
+    if (!tour.gallery) return
+    const newIndex = currentSlide + direction
+    if (newIndex >= 0 && newIndex < tour.gallery.length) {
+      setCurrentSlide(newIndex)
+    } else if (newIndex < 0) {
+      setCurrentSlide(tour.gallery.length - 1)
+    } else {
+      setCurrentSlide(0)
+    }
+  }
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index)
+  }
+
+  const openFullscreen = (image) => {
+    setFullscreenImage(image)
+    setIsFullscreen(true)
+  }
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false)
+    setFullscreenImage("")
+  }
+
+  // Auto-play gallery
+  useEffect(() => {
+    if (!tour.gallery || tour.gallery.length <= 1) return
+    
+    const interval = setInterval(() => {
+      navigateSlide(1)
+    }, 5000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [currentSlide, tour.gallery])
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (isFullscreen) {
+        if (e.key === 'Escape') {
+          closeFullscreen()
+        } else if (e.key === 'ArrowLeft') {
+          navigateSlide(-1)
+        } else if (e.key === 'ArrowRight') {
+          navigateSlide(1)
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [isFullscreen, currentSlide])
+
   return (
     <div className={styles.tourDetail}>
       {/* Breadcrumb */}
@@ -181,6 +245,67 @@ const TourDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Tour Gallery Slider */}
+      {tour.gallery && tour.gallery.length > 0 && (
+        <section className={styles.gallerySection}>
+          <div className="container">
+            <h2>Thư viện hình ảnh</h2>
+            <div className={styles.galleryContainer}>
+              <div className={styles.gallerySlider}>
+                <div className={styles.gallerySlide}>
+                  <img 
+                    src={tour.gallery[currentSlide]} 
+                    alt={`${tour.title} - Hình ${currentSlide + 1}`}
+                    className={styles.galleryImage}
+                    loading="lazy"
+                  />
+                  <div className={styles.slideOverlay}>
+                    <div className={styles.slideInfo}>
+                      <span className={styles.slideNumber}>{currentSlide + 1} / {tour.gallery.length}</span>
+                      <button 
+                        className={styles.fullscreenBtn}
+                        onClick={() => openFullscreen(tour.gallery[currentSlide])}
+                        title="Xem toàn màn hình"
+                      >
+                        <Camera size={20} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Navigation Buttons */}
+              <button 
+                className={`${styles.navBtn} ${styles.prevBtn}`}
+                onClick={() => navigateSlide(-1)}
+                aria-label="Hình trước"
+              >
+                <ArrowLeft size={24} />
+              </button>
+              <button 
+                className={`${styles.navBtn} ${styles.nextBtn}`}
+                onClick={() => navigateSlide(1)}
+                aria-label="Hình tiếp"
+              >
+                <ArrowLeft size={24} style={{ transform: 'rotate(180deg)' }} />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className={styles.dotsContainer}>
+                {tour.gallery.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`${styles.dot} ${currentSlide === index ? styles.activeDot : ''}`}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Chuyển đến hình ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <div className="container">
         <div className={styles.tourContent}>
@@ -286,21 +411,6 @@ const TourDetail = () => {
                 ))}
               </div>
             </section>
-
-            {/* Gallery */}
-            <section className={styles.section}>
-              <h2>Hình ảnh tour</h2>
-              <div className={styles.gallery}>
-                {tour.gallery.map((image, index) => (
-                  <div key={index} className={styles.galleryItem}>
-                    <img src={image} alt={`Gallery ${index + 1}`} />
-                  </div>
-                ))}
-              </div>
-            </section>
-
-
-
 
             {/* Safety & Requirements */}
             <section className={styles.section}>
@@ -678,6 +788,41 @@ const TourDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* Fullscreen Modal */}
+      {isFullscreen && (
+        <div className={styles.fullscreenModal} onClick={closeFullscreen}>
+          <div className={styles.fullscreenContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeBtn} onClick={closeFullscreen}>
+              <X size={24} />
+            </button>
+            <img 
+              src={fullscreenImage} 
+              alt="Fullscreen view"
+              className={styles.fullscreenImage}
+            />
+            <div className={styles.fullscreenControls}>
+              <button 
+                className={styles.fullscreenNavBtn}
+                onClick={() => navigateSlide(-1)}
+                aria-label="Hình trước"
+              >
+                <ArrowLeft size={24} />
+              </button>
+              <span className={styles.fullscreenCounter}>
+                {currentSlide + 1} / {tour.gallery.length}
+              </span>
+              <button 
+                className={styles.fullscreenNavBtn}
+                onClick={() => navigateSlide(1)}
+                aria-label="Hình tiếp"
+              >
+                <ArrowLeft size={24} style={{ transform: 'rotate(180deg)' }} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
