@@ -36,7 +36,7 @@ const initialState = {
       },
       guide: {
         name: "Nguyễn Văn A",
-        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+        avatar: "https://media.istockphoto.com/id/1221363425/photo/portrait-of-young-tourist-with-backpack-in-the-city.jpg?s=612x612&w=0&k=20&c=HEdO_zxxU5WCxe2dMRucdetDa3Jwl8FvVJ1syDBB70U=",
         experience: "5 năm kinh nghiệm",
         age: 32,
         rating: 5.0,
@@ -145,7 +145,7 @@ const initialState = {
       },
       guide: {
         name: "Trần Thị B",
-        avatar: "https://randomuser.me/api/portraits/women/45.jpg",
+        avatar: "https://media.istockphoto.com/id/1446220787/vi/anh/ch%C3%A2n-dung-c%C3%B4-g%C3%A1i-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-sinh-vi%C3%AAn-c%E1%BA%A7m-m%C3%A1y-t%C3%ADnh-b%E1%BA%A3ng-k%E1%BB%B9-thu%E1%BA%ADt-s%E1%BB%91-t%E1%BA%A1i-tr%C6%B0%E1%BB%9Dng-%C4%91%E1%BA%A1i-h%E1%BB%8Dc-%C4%91%E1%BB%A9ng.jpg?s=2048x2048&w=is&k=20&c=4lZmYeRk1NQj5Z2ZowUuK_QAFeoKGaWYEKZt_DahT58=",
         experience: "7 năm kinh nghiệm",
         age: 28,
         rating: 4.9,
@@ -262,7 +262,7 @@ const initialState = {
       },
       guide: {
         name: "Lê Văn C",
-        avatar: "https://randomuser.me/api/portraits/men/67.jpg",
+        avatar: "https://media.istockphoto.com/id/1473639385/vi/anh/h%E1%BB%8Dc-sinh-ch%C3%A2u-%C3%A1-tr%E1%BA%BB-tu%E1%BB%95i-%E1%BB%9F-tr%C6%B0%E1%BB%9Dng.jpg?s=2048x2048&w=is&k=20&c=DaK3k2VgAdLJmsaNQafl4gOKupoV2Xm2P45sH85Xhjs=",
         experience: "10 năm kinh nghiệm",
         age: 35,
         rating: 4.7,
@@ -364,7 +364,7 @@ const initialState = {
       },
       guide: {
         name: "Phạm Thị D",
-        avatar: "https://randomuser.me/api/portraits/women/23.jpg",
+        avatar: "https://media.istockphoto.com/id/2157215550/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-ch%C3%A2u-%C3%A1-m%E1%BB%89m-c%C6%B0%E1%BB%9Di-t%E1%BB%B1-ch%E1%BB%A5p-ch%C3%A2n-dung.jpg?s=2048x2048&w=is&k=20&c=JT6aMhe1TFWiTIoWbZNHzAMbSF12euJbDIe6ZUCIvNo=",
         experience: "8 năm kinh nghiệm",
         age: 30,
         rating: 5.0,
@@ -485,7 +485,7 @@ const initialState = {
       },
       guide: {
         name: "Hoàng Văn E",
-        avatar: "https://randomuser.me/api/portraits/men/89.jpg",
+        avatar: "https://media.istockphoto.com/id/1647640486/vi/anh/ch%C3%A0ng-trai-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-c%E1%BA%ADn-c%E1%BA%A3nh-%E1%BA%A3nh-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-ng%C6%B0%E1%BB%9Di-da-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=_daTnM9_UsOIa7qf4NdG20SiTTB6u-MXPq4VQloia0M=",
         experience: "12 năm kinh nghiệm",
         age: 38,
         rating: 5.0,
