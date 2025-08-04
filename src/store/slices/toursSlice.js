@@ -35,7 +35,7 @@ const initialState = {
       },
       guide: {
         name: "Nguyễn Văn A",
-        avatar: "https://media.istockphoto.com/id/1221363425/photo/portrait-of-young-tourist-with-backpack-in-the-city.jpg?s=612x612&w=0&k=20&c=HEdO_zxxU5WCxe2dMRucdetDa3Jwl8FvVJ1syDBB70U=",
+        avatar: "https://sdmntprwestus.oaiusercontent.com/files/00000000-806c-6230-a23e-30ec39521a83/raw?se=2025-08-04T14%3A37%3A53Z&sp=r&sv=2024-08-04&sr=b&scid=c983fda8-21ce-50ef-a72b-5e997686cceb&skoid=789f404f-91a9-4b2f-932c-c44965c11d82&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-04T10%3A12%3A13Z&ske=2025-08-05T10%3A12%3A13Z&sks=b&skv=2024-08-04&sig=AJQ5IoyAE6Sx3/dlJiGiVrrJ6zp9ctb8On1a2oL0Hv4%3D",
         experience: "5 năm kinh nghiệm",
         age: 32,
         rating: 5.0,
@@ -142,14 +142,14 @@ const initialState = {
         day3: "3km"
       },
       guide: {
-        name: "Trần Thị B",
-        avatar: "https://media.istockphoto.com/id/1446220787/vi/anh/ch%C3%A2n-dung-c%C3%B4-g%C3%A1i-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-sinh-vi%C3%AAn-c%E1%BA%A7m-m%C3%A1y-t%C3%ADnh-b%E1%BA%A3ng-k%E1%BB%B9-thu%E1%BA%ADt-s%E1%BB%91-t%E1%BA%A1i-tr%C6%B0%E1%BB%9Dng-%C4%91%E1%BA%A1i-h%E1%BB%8Dc-%C4%91%E1%BB%A9ng.jpg?s=2048x2048&w=is&k=20&c=4lZmYeRk1NQj5Z2ZowUuK_QAFeoKGaWYEKZt_DahT58=",
+        name: "Trần Văn B",
+        avatar: "https://api.deepai.org/job-view-file/3001c7fd-9778-4ffa-a695-f8251495180c/outputs/output.jpg",
         experience: "7 năm kinh nghiệm",
         age: 28,
         rating: 4.9,
         toursCompleted: 150,
         languages: ["Tiếng Việt", "Tiếng Anh", "Tiếng Jrai"],
-        bio: "B là chuyên gia về văn hóa Tây Nguyên với nhiều năm kinh nghiệm dẫn tour tại khu vực này. Cô có kiến thức sâu rộng về văn hóa các dân tộc thiểu số.",
+        bio: "B là chuyên gia về văn hóa Tây Nguyên với nhiều năm kinh nghiệm dẫn tour tại khu vực này. Anh có kiến thức sâu rộng về văn hóa các dân tộc thiểu số.",
         specialties: ["Văn hóa Tây Nguyên", "Trekking", "Nhiếp ảnh", "Ẩm thực địa phương"],
         certificates: [
           {
@@ -259,7 +259,7 @@ const initialState = {
       },
       guide: {
         name: "Lê Văn C",
-        avatar: "https://media.istockphoto.com/id/1473639385/vi/anh/h%E1%BB%8Dc-sinh-ch%C3%A2u-%C3%A1-tr%E1%BA%BB-tu%E1%BB%95i-%E1%BB%9F-tr%C6%B0%E1%BB%9Dng.jpg?s=2048x2048&w=is&k=20&c=DaK3k2VgAdLJmsaNQafl4gOKupoV2Xm2P45sH85Xhjs=",
+        avatar: "https://api.deepai.org/job-view-file/05bd549a-9457-4dfd-ba16-57ddc9f45aac/outputs/output.jpg",
         experience: "10 năm kinh nghiệm",
         age: 35,
         rating: 4.7,
@@ -359,14 +359,14 @@ const initialState = {
         day3: "4km"
       },
       guide: {
-        name: "Phạm Thị D",
-        avatar: "https://media.istockphoto.com/id/2157215550/vi/anh/ng%C6%B0%E1%BB%9Di-ph%E1%BB%A5-n%E1%BB%AF-ch%C3%A2u-%C3%A1-m%E1%BB%89m-c%C6%B0%E1%BB%9Di-t%E1%BB%B1-ch%E1%BB%A5p-ch%C3%A2n-dung.jpg?s=2048x2048&w=is&k=20&c=JT6aMhe1TFWiTIoWbZNHzAMbSF12euJbDIe6ZUCIvNo=",
+        name: "Phạm Văn D",
+        avatar: "https://api.deepai.org/job-view-file/64f9a0a8-9f3e-45e5-915b-b12d39568497/outputs/output.jpg",
         experience: "8 năm kinh nghiệm",
         age: 30,
         rating: 5.0,
         toursCompleted: 120,
         languages: ["Tiếng Việt", "Tiếng Anh", "Tiếng Êđê"],
-        bio: "D là chuyên gia về sinh thái rừng với nhiều năm nghiên cứu tại Vườn Quốc Gia Yok Đôn. Cô có kiến thức sâu rộng về động vật hoang dã và hệ sinh thái.",
+        bio: "D là chuyên gia về sinh thái rừng với nhiều năm nghiên cứu tại Vườn Quốc Gia Yok Đôn. Anh có kiến thức sâu rộng về động vật hoang dã và hệ sinh thái.",
         specialties: ["Sinh thái học", "Trekking", "Nhiếp ảnh động vật", "Bảo tồn"],
         certificates: [
           {
@@ -480,7 +480,7 @@ const initialState = {
       },
       guide: {
         name: "Hoàng Văn E",
-        avatar: "https://media.istockphoto.com/id/1647640486/vi/anh/ch%C3%A0ng-trai-tr%E1%BA%BB-ch%C3%A2u-%C3%A1-c%E1%BA%ADn-c%E1%BA%A3nh-%E1%BA%A3nh-b%E1%BB%8B-c%C3%B4-l%E1%BA%ADp-tr%C3%AAn-ng%C6%B0%E1%BB%9Di-da-tr%E1%BA%AFng.jpg?s=2048x2048&w=is&k=20&c=_daTnM9_UsOIa7qf4NdG20SiTTB6u-MXPq4VQloia0M=",
+        avatar: "https://api.deepai.org/job-view-file/a1bb8bc7-d372-4ec6-9ef5-e84f05a83181/outputs/output.jpg",
         experience: "12 năm kinh nghiệm",
         age: 38,
         rating: 5.0,
