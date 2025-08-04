@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
     {
       icon: Smartphone,
       title: "Công nghệ hỗ trợ",
-      description: "App với GPS tracking, SOS khẩn cấp, AI chatbot 24/7 và video call với hướng dẫn viên",
+      description: "AI chatbot 24/7 trả lời thắc mắc về tour. AR tour cho phép xem trước địa điểm du lịch chân thực.",
     },
   ]
 

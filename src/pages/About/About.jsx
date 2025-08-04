@@ -238,7 +238,7 @@ const About = () => {
                   <Shield className={styles.whyIcon} />
                   <div>
                     <h4>Ứng dụng công nghệ hiện đại</h4>
-                    <p>GPS tracking, SOS khẩn cấp, AI chatbot 24/7 và video call với hướng dẫn viên</p>
+                    <p>AI chatbot hỗ trợ 24/7 trả lời mọi thắc mắc về tour. Công nghệ AR tour cho phép xem trước địa điểm du lịch chân thực và tương tác bản đồ 3D.</p>
                   </div>
                 </div>
                 <div className={styles.whyPoint}>
