@@ -133,8 +133,7 @@ const AIChat = () => {
         return {
           content: `💰 Giá tour "${matchingTour.title}":
 
-• Giá cơ bản: ${matchingTour.price.toLocaleString('vi-VN')}đ
-• Giá cao nhất: ${matchingTour.maxPrice ? matchingTour.maxPrice.toLocaleString('vi-VN') : matchingTour.price.toLocaleString('vi-VN')}đ
+• Giá: ${matchingTour.price.toLocaleString('vi-VN')}đ
 • Thời gian: ${matchingTour.duration}
 • Số người tối đa: ${matchingTour.maxPeople} người
 
@@ -381,8 +380,7 @@ Bạn muốn biết thêm thông tin về tour nào?`,
           return {
             content: `💰 Giá tour "${tour.title}":
 
-• Giá cơ bản: ${tour.price.toLocaleString('vi-VN')}đ
-• Giá cao nhất: ${tour.maxPrice ? tour.maxPrice.toLocaleString('vi-VN') : tour.price.toLocaleString('vi-VN')}đ
+• Giá: ${tour.price.toLocaleString('vi-VN')}đ
 • Thời gian: ${tour.duration}
 • Số người tối đa: ${tour.maxPeople} người
 

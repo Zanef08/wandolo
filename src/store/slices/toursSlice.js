@@ -9,7 +9,6 @@ const initialState = {
       duration: "2N1D",
       difficulty: "Dễ - Mức độ cho người bắt đầu",
       price: 3200000,
-      maxPrice: 4200000,
       activityType: ["Trekking"],
       image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
@@ -117,7 +116,6 @@ const initialState = {
       duration: "3N2D",
       difficulty: "Trung bình",
       price: 4300000,
-      maxPrice: 5800000,
       activityType: ["Trekking", "Camping"],
       image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
@@ -235,7 +233,6 @@ const initialState = {
       duration: "2N2D",
       difficulty: "Dễ - Mức độ cho người bắt đầu",
       price: 3000000,
-      maxPrice: 4000000,
       activityType: ["Trekking"],
       image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
@@ -336,7 +333,6 @@ const initialState = {
       duration: "3N2D",
       difficulty: "Khó",
       price: 4500000,
-      maxPrice: 6000000,
       activityType: ["Trekking", "Caving", "Kayaking"],
       image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
@@ -458,7 +454,6 @@ const initialState = {
       duration: "2N1D",
       difficulty: "Khó",
       price: 4500000,
-      maxPrice: 6000000,
       activityType: ["Trekking", "Camping"],
       image: "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/Content-Travel_Types/Adventure_Travel/Features/ATTA%20Trends_HERO/The-Latest-Trends-in-Adventure-Travel.jpg?tr=w-1008%2Ch-567%2Cfo-auto",
       description:
