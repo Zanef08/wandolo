@@ -88,7 +88,6 @@
   
   &:hover {
     color: var(--primary-green);
-    background: rgba(16, 185, 129, 0.05);
     
     &::before {
       width: 80%;
@@ -97,7 +96,6 @@
   
   &.active {
     color: var(--primary-green);
-    background: rgba(16, 185, 129, 0.1);
     font-weight: 600;
     
     &::before {
@@ -130,7 +128,6 @@
   
   &:hover {
     color: var(--primary-green);
-    background: rgba(16, 185, 129, 0.05);
   }
 }
 
@@ -169,7 +166,6 @@
   transition: var(--transition);
   
   &:hover {
-    background: rgba(16, 185, 129, 0.05);
     color: var(--primary-green);
   }
   

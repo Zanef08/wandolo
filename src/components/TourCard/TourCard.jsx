@@ -83,7 +83,8 @@ const TourCard = ({ tour }) => {
             <span className={styles.priceUnit}>/người</span>
           </div>
           <Link to={`/tours/${tour.id}`} className={styles.viewButton}>
-            <Eye size={20} />
+            <Eye size={20} className={styles.viewIcon} />
+            <span className={styles.viewText}>Xem chi tiết</span>
           </Link>
         </div>
       </div>

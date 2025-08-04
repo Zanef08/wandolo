@@ -70,7 +70,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   
   &.green {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: linear-gradient(135deg, #155b36 0%, #0f3d25 100%);
   }
   
   &.orange {
@@ -210,19 +210,19 @@
 }
 
 .activityTag {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        background: linear-gradient(135deg, #155b36 0%, #0f3d25 100%);
   color: var(--white);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   font-weight: 600;
-  border: 1px solid #10b981;
+        border: 1px solid #155b36;
   transition: var(--transition);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   
   &:hover {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+          background: linear-gradient(135deg, #0f3d25 0%, #0a2d1a 100%);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
   }
@@ -296,6 +296,30 @@
   svg {
     width: 20px;
     height: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    width: auto;
+    height: auto;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    gap: var(--space-2);
+  }
+}
+
+.viewIcon {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.viewText {
+  display: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  
+  @media (max-width: 768px) {
+    display: inline;
   }
 }
 

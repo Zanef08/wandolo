@@ -10,10 +10,10 @@ html {
 
 :root {
   // Modern color palette
-  --primary-green: #10b981;
-  --primary-green-dark: #059669;
-  --primary-green-light: #34d399;
-  --secondary-green: #6ee7b7;
+  --primary-green: #155b36;
+  --primary-green-dark: #0f3d25;
+  --primary-green-light: #2a7a4f;
+  --secondary-green: #4a8c6b;
   --accent-orange: #f59e0b;
   --accent-orange-dark: #d97706;
   --accent-yellow: #fde047;
@@ -45,13 +45,13 @@ html {
   --shadow-2xl: 0 50px 100px -20px rgb(0 0 0 / 0.25);
   
   // Modern gradients
-  --gradient-primary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-primary: linear-gradient(135deg, #155b36 0%, #0f3d25 100%);
   --gradient-secondary: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-success: linear-gradient(135deg, #155b36 0%, #0f3d25 100%);
   --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(16, 185, 129, 0.95) 0%, rgba(5, 150, 105, 0.9) 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(21, 91, 54, 0.95) 0%, rgba(15, 61, 37, 0.9) 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   
   // Border radius
