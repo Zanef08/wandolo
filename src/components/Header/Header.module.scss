@@ -145,8 +145,38 @@
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
+  height: 40px;
+  box-sizing: border-box;
   
   &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--white);
+  color: var(--primary-green);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  outline: 2px solid var(--primary-green);
+  outline-offset: -2px;
+  height: 40px;
+  box-sizing: border-box;
+  
+  &:hover {
+    background: var(--primary-green);
+    color: var(--white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
@@ -265,8 +295,40 @@
   box-shadow: var(--shadow-sm);
   width: 100%;
   margin-top: var(--space-4);
+  min-height: 56px;
+  box-sizing: border-box;
   
   &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.mobileLoginButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--white);
+  color: var(--primary-green);
+  border: none;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  margin-top: var(--space-4);
+  outline: 2px solid var(--primary-green);
+  outline-offset: -2px;
+  min-height: 56px;
+  box-sizing: border-box;
+  
+  &:hover {
+    background: var(--primary-green);
+    color: var(--white);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }

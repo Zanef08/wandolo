@@ -535,9 +535,9 @@ input[type="file"] {
 input[type="checkbox"],
 input[type="radio"] {
   appearance: none;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 2px solid var(--slate-300);
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 1px solid var(--slate-300);
   border-radius: var(--radius-sm);
   background-color: var(--white);
   cursor: pointer;
@@ -552,18 +552,6 @@ input[type="radio"] {
   &:checked {
     background-color: var(--primary-green);
     border-color: var(--primary-green);
-    
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 0.5rem;
-      height: 0.5rem;
-      background-color: var(--white);
-      border-radius: 50%;
-    }
   }
   
   &:focus {

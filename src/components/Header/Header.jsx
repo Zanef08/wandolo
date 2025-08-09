@@ -1,7 +1,7 @@
 "use client"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { Menu, X, Phone, MessageCircle } from "lucide-react"
+import { Menu, X, Phone, MessageCircle, User } from "lucide-react"
 import { toggleMobileMenu, closeMobileMenu } from "../../store/slices/uiSlice"
 import styles from "./Header.module.scss"
 
@@ -54,6 +54,10 @@ const Header = () => {
               <MessageCircle size={16} />
               <span>Chat</span>
             </button>
+            <Link to="/login" className={styles.loginButton}>
+              <User size={16} />
+              <span>Đăng nhập</span>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -84,6 +88,10 @@ const Header = () => {
                 <MessageCircle size={16} />
                 <span>Chat với chúng tôi</span>
               </button>
+              <Link to="/login" className={styles.mobileLoginButton} onClick={handleLinkClick}>
+                <User size={16} />
+                <span>Đăng nhập</span>
+              </Link>
             </div>
           </nav>
         )}
