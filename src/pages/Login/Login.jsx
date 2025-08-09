@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { Link, useNavigate, useLocation } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
+import { loginUser } from "../../store/slices/authSlice"
 import styles from "./Login.module.scss"
 
 const Login = () => {
@@ -10,11 +11,12 @@ const Login = () => {
     password: "",
   })
   const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
 
   const navigate = useNavigate()
+  const location = useLocation()
   const dispatch = useDispatch()
+  const { isLoading, error } = useSelector((state) => state.auth)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -54,23 +56,20 @@ const Login = () => {
     e.preventDefault()
     
     if (!validateForm()) return
-
-    setIsLoading(true)
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      const result = await dispatch(loginUser(formData))
       
-      // TODO: Implement actual login logic with Redux
-      console.log("Login attempt:", formData)
-      
-      // Navigate to home page after successful login
-      navigate("/")
-    } catch (error) {
-      console.error("Login error:", error)
+      if (result.success) {
+        // Navigate to home page or previous page after successful login
+        const from = location.state?.from?.pathname || "/"
+        navigate(from, { replace: true })
+      } else {
+        setErrors({ general: result.error || "Đăng nhập thất bại. Vui lòng thử lại." })
+      }
+    } catch (err) {
+      console.error("Login error:", err)
       setErrors({ general: "Đăng nhập thất bại. Vui lòng thử lại." })
-    } finally {
-      setIsLoading(false)
     }
   }
 
@@ -94,9 +93,15 @@ const Login = () => {
           </div>
 
           <form className={styles.loginForm} onSubmit={handleSubmit}>
-          {errors.general && (
+          {(errors.general || error) && (
             <div className={styles.errorMessage}>
-              {errors.general}
+              {errors.general || error}
+            </div>
+          )}
+          
+          {location.state?.message && (
+            <div className={styles.successMessage}>
+              {location.state.message}
             </div>
           )}
 

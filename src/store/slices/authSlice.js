@@ -129,21 +129,32 @@ export const loginUser = (credentials) => async (dispatch) => {
   dispatch(loginStart())
   
   try {
-    // TODO: Replace with actual API call
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    })
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1500))
     
-    if (!response.ok) {
-      throw new Error("Login failed")
+    // Mock login - check against stored users or use demo credentials
+    const storedUsers = JSON.parse(localStorage.getItem("wandolo_users") || "[]")
+    const user = storedUsers.find(u => u.email === credentials.email && u.password === credentials.password)
+    
+    // Demo credentials for testing
+    if (!user && !(credentials.email === "demo@wandolo.com" && credentials.password === "123456")) {
+      throw new Error("Email hoặc mật khẩu không đúng")
     }
     
-    const data = await response.json()
-    dispatch(loginSuccess(data))
+    const userData = user || {
+      id: "demo-user",
+      fullName: "Demo User",
+      email: "demo@wandolo.com",
+      phone: "0123456789",
+      avatar: "https://ui-avatars.com/api/?name=Demo+User&background=4F46E5&color=fff"
+    }
+    
+    const token = "mock-jwt-token-" + Date.now()
+    
+    dispatch(loginSuccess({
+      user: userData,
+      token: token
+    }))
     
     return { success: true }
   } catch (error) {
@@ -156,21 +167,41 @@ export const registerUser = (userData) => async (dispatch) => {
   dispatch(registerStart())
   
   try {
-    // TODO: Replace with actual API call
-    const response = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 2000))
     
-    if (!response.ok) {
-      throw new Error("Registration failed")
+    // Check if user already exists
+    const storedUsers = JSON.parse(localStorage.getItem("wandolo_users") || "[]")
+    const existingUser = storedUsers.find(u => u.email === userData.email)
+    
+    if (existingUser) {
+      throw new Error("Email đã được sử dụng")
     }
     
-    const data = await response.json()
-    dispatch(registerSuccess(data))
+    // Create new user
+    const newUser = {
+      id: "user-" + Date.now(),
+      fullName: userData.fullName,
+      email: userData.email,
+      phone: userData.phone,
+      password: userData.password, // In real app, this would be hashed
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(userData.fullName)}&background=4F46E5&color=fff`,
+      createdAt: new Date().toISOString()
+    }
+    
+    // Store user
+    storedUsers.push(newUser)
+    localStorage.setItem("wandolo_users", JSON.stringify(storedUsers))
+    
+    const token = "mock-jwt-token-" + Date.now()
+    
+    // Remove password from user data before storing in state
+    const { password, ...userWithoutPassword } = newUser
+    
+    dispatch(registerSuccess({
+      user: userWithoutPassword,
+      token: token
+    }))
     
     return { success: true }
   } catch (error) {

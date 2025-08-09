@@ -1,14 +1,19 @@
 "use client"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { Menu, X, Phone, MessageCircle, User } from "lucide-react"
+import { Menu, X, Phone, MessageCircle, User, LogOut, ChevronDown } from "lucide-react"
 import { toggleMobileMenu, closeMobileMenu } from "../../store/slices/uiSlice"
+import { logout } from "../../store/slices/authSlice"
+import { useState, useEffect, useRef } from "react"
 import styles from "./Header.module.scss"
 
 const Header = () => {
   const location = useLocation()
   const dispatch = useDispatch()
   const { mobileMenuOpen } = useSelector((state) => state.ui)
+  const { isAuthenticated, user } = useSelector((state) => state.auth)
+  const [showUserMenu, setShowUserMenu] = useState(false)
+  const userMenuRef = useRef(null)
 
   const navigation = [
     { name: "Trang chủ", href: "/" },
@@ -19,7 +24,27 @@ const Header = () => {
 
   const handleLinkClick = () => {
     dispatch(closeMobileMenu())
+    setShowUserMenu(false)
   }
+
+  const handleLogout = () => {
+    dispatch(logout())
+    setShowUserMenu(false)
+  }
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setShowUserMenu(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -54,10 +79,51 @@ const Header = () => {
               <MessageCircle size={16} />
               <span>Chat</span>
             </button>
-            <Link to="/login" className={styles.loginButton}>
-              <User size={16} />
-              <span>Đăng nhập</span>
-            </Link>
+            {isAuthenticated && user ? (
+              <div className={styles.userMenu} ref={userMenuRef}>
+                <button 
+                  className={styles.userButton}
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                >
+                  <img 
+                    src={user.avatar} 
+                    alt={user.fullName}
+                    className={styles.userAvatar}
+                  />
+                  <span className={styles.userName}>{user.fullName}</span>
+                  <ChevronDown size={16} className={styles.chevron} />
+                </button>
+                
+                {showUserMenu && (
+                  <div className={styles.userDropdown}>
+                    <div className={styles.userInfo}>
+                      <img 
+                        src={user.avatar} 
+                        alt={user.fullName}
+                        className={styles.dropdownAvatar}
+                      />
+                      <div>
+                        <p className={styles.dropdownName}>{user.fullName}</p>
+                        <p className={styles.dropdownEmail}>{user.email}</p>
+                      </div>
+                    </div>
+                    <div className={styles.menuDivider}></div>
+                    <button 
+                      className={styles.logoutButton}
+                      onClick={handleLogout}
+                    >
+                      <LogOut size={16} />
+                      <span>Đăng xuất</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link to="/login" className={styles.loginButton}>
+                <User size={16} />
+                <span>Đăng nhập</span>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,10 +154,31 @@ const Header = () => {
                 <MessageCircle size={16} />
                 <span>Chat với chúng tôi</span>
               </button>
-              <Link to="/login" className={styles.mobileLoginButton} onClick={handleLinkClick}>
-                <User size={16} />
-                <span>Đăng nhập</span>
-              </Link>
+              {isAuthenticated && user ? (
+                <div className={styles.mobileUserInfo}>
+                  <img 
+                    src={user.avatar} 
+                    alt={user.fullName}
+                    className={styles.mobileAvatar}
+                  />
+                  <div className={styles.mobileUserDetails}>
+                    <p className={styles.mobileUserName}>{user.fullName}</p>
+                    <p className={styles.mobileUserEmail}>{user.email}</p>
+                  </div>
+                  <button 
+                    className={styles.mobileLogoutButton}
+                    onClick={handleLogout}
+                  >
+                    <LogOut size={16} />
+                    <span>Đăng xuất</span>
+                  </button>
+                </div>
+              ) : (
+                <Link to="/login" className={styles.mobileLoginButton} onClick={handleLinkClick}>
+                  <User size={16} />
+                  <span>Đăng nhập</span>
+                </Link>
+              )}
             </div>
           </nav>
         )}

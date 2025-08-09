@@ -1,4 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { initializeAuth } from "./store/slices/authSlice"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import AuthLayout from "./components/AuthLayout/AuthLayout"
@@ -19,6 +22,12 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword"
 
 function App() {
   const location = useLocation()
+  const dispatch = useDispatch()
+
+  // Initialize auth state from localStorage on app start
+  useEffect(() => {
+    dispatch(initializeAuth())
+  }, [dispatch])
   
   // Check if current route is an auth page
   const authRoutes = ['/login', '/register', '/forgot-password', '/verify-code', '/reset-password']

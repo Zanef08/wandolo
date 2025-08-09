@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Eye, EyeOff, Mail, Lock, User, Phone } from "lucide-react"
+import { registerUser } from "../../store/slices/authSlice"
 import styles from "./Register.module.scss"
 
 const Register = () => {
@@ -15,11 +16,11 @@ const Register = () => {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const { isLoading, error } = useSelector((state) => state.auth)
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -83,27 +84,19 @@ const Register = () => {
     e.preventDefault()
     
     if (!validateForm()) return
-
-    setIsLoading(true)
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      const result = await dispatch(registerUser(formData))
       
-      // TODO: Implement actual registration logic with Redux
-      console.log("Registration attempt:", formData)
-      
-      // Navigate to login page after successful registration
-      navigate("/login", { 
-        state: { 
-          message: "Đăng ký thành công! Vui lòng đăng nhập." 
-        }
-      })
-    } catch (error) {
-      console.error("Registration error:", error)
+      if (result.success) {
+        // Navigate to home page after successful registration
+        navigate("/")
+      } else {
+        setErrors({ general: result.error || "Đăng ký thất bại. Vui lòng thử lại." })
+      }
+    } catch (err) {
+      console.error("Registration error:", err)
       setErrors({ general: "Đăng ký thất bại. Vui lòng thử lại." })
-    } finally {
-      setIsLoading(false)
     }
   }
 
@@ -126,9 +119,9 @@ const Register = () => {
           </div>
 
           <form className={styles.registerForm} onSubmit={handleSubmit}>
-          {errors.general && (
+          {(errors.general || error) && (
             <div className={styles.errorMessage}>
-              {errors.general}
+              {errors.general || error}
             </div>
           )}
 
