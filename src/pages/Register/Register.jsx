@@ -280,7 +280,7 @@ const Register = () => {
             </p>
           </div>
 
-          <div className={styles.divider}>
+          {/* <div className={styles.divider}>
             <span>Hoặc đăng ký bằng</span>
           </div>
 
@@ -295,7 +295,7 @@ const Register = () => {
               </svg>
               Facebook
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

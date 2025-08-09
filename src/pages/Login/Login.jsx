@@ -182,11 +182,11 @@ const Login = () => {
             </p>
           </div>
 
-          <div className={styles.divider}>
+          {/* <div className={styles.divider}>
             <span>Hoặc đăng nhập bằng</span>
-          </div>
+          </div> */}
 
-          <div className={styles.socialLogin}>
+          {/* <div className={styles.socialLogin}>
             <button className={styles.socialButton}>
               <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" />
               Google
@@ -197,10 +197,10 @@ const Login = () => {
               </svg>
               Facebook
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
-    </div>
+    </div>  
   )
 }
 
