@@ -114,7 +114,7 @@ const Header = () => {
                       onClick={() => setShowUserMenu(false)}
                     >
                       <Calendar size={16} />
-                      <span>My Booking</span>
+                      <span>Các tour đã đặt</span>
                     </Link>
                     <button 
                       className={styles.logoutButton}
@@ -179,7 +179,7 @@ const Header = () => {
                     onClick={handleLinkClick}
                   >
                     <Calendar size={16} />
-                    <span>My Booking</span>
+                    <span>Các tour đã đặt</span>
                   </Link>
                   <button 
                     className={styles.mobileLogoutButton}
