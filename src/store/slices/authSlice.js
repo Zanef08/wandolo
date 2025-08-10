@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { clearCurrentBooking } from "./bookingSlice"
 
 const initialState = {
   user: null,
@@ -65,6 +66,19 @@ const authSlice = createSlice({
       // Remove from localStorage
       localStorage.removeItem("token")
       localStorage.removeItem("user")
+      // Clear all user-related data
+      localStorage.removeItem("wandolo_discount_code")
+      localStorage.removeItem("show_discount_popup")
+      localStorage.removeItem("booking_data")
+      localStorage.removeItem("user_preferences")
+      // Clear any form data that might be cached
+      sessionStorage.clear()
+      // Clear any other cached data
+      localStorage.removeItem("current_booking")
+      localStorage.removeItem("booking_history")
+      localStorage.removeItem("user_settings")
+      localStorage.removeItem("recent_searches")
+      localStorage.removeItem("favorites")
     },
 
     // Clear error
@@ -238,6 +252,15 @@ export const updateUserProfile = (userData) => async (dispatch, getState) => {
     dispatch(updateUserFailure(error.message))
     return { success: false, error: error.message }
   }
+}
+
+// Enhanced logout action that clears all related state
+export const logoutUser = () => async (dispatch) => {
+  // Clear booking state
+  dispatch(clearCurrentBooking())
+  
+  // Clear auth state and localStorage
+  dispatch(logout())
 }
 
 // Selectors

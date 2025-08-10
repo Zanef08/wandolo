@@ -14,6 +14,7 @@ import TourDetail from "./pages/TourDetail/TourDetail"
 import About from "./pages/About/About"
 import Contact from "./pages/Contact/Contact"
 import Booking from "./pages/Booking/Booking"
+import MyBooking from "./pages/MyBooking/MyBooking"
 import Login from "./pages/Login/Login"
 import Register from "./pages/Register/Register"
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword"
@@ -60,6 +61,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/booking/:tourId" element={<Booking />} />
+          <Route path="/my-booking" element={<MyBooking />} />
         </Routes>
       </main>
       <Footer />

@@ -1,10 +1,17 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { ArrowLeft, Calendar, Users, CreditCard, Shield, CheckCircle, Phone, MessageCircle, Activity, AlertTriangle } from "lucide-react"
-import { setCurrentBooking, setCustomerInfo, setAddOns } from "../../store/slices/bookingSlice"
+import { ArrowLeft, Calendar, Users, CreditCard, Shield, CheckCircle, Phone, MessageCircle, Activity, AlertTriangle, Tag } from "lucide-react"
+import { setCurrentBooking, setCustomerInfo, setAddOns, addCurrentBookingToHistory } from "../../store/slices/bookingSlice"
+import { 
+  getStoredDiscountCode, 
+  validateDiscountCode, 
+  markDiscountCodeAsUsed,
+  isFirstBooking 
+} from "../../utils/discountUtils"
+import { selectUser, selectIsAuthenticated } from "../../store/slices/authSlice"
 import styles from "./Booking.module.scss"
 
 const Booking = () => {
@@ -13,6 +20,8 @@ const Booking = () => {
   const dispatch = useDispatch()
   const { tours } = useSelector((state) => state.tours)
   const { currentBooking } = useSelector((state) => state.booking)
+  const user = useSelector(selectUser)
+  const isAuthenticated = useSelector(selectIsAuthenticated)
 
   const [currentStep, setCurrentStep] = useState(1)
   const [selectedDate, setSelectedDate] = useState("")
@@ -29,6 +38,13 @@ const Booking = () => {
     photography: false,
   })
   const [paymentMethod, setPaymentMethod] = useState("momo")
+  const [agreeToTerms, setAgreeToTerms] = useState(false)
+  
+  // Discount Code State
+  const [discountCode, setDiscountCode] = useState("")
+  const [appliedDiscount, setAppliedDiscount] = useState(null)
+  const [discountError, setDiscountError] = useState("")
+  const [storedDiscount, setStoredDiscount] = useState(null)
 
   // VO2 Max Test State
   const [vo2TestData, setVo2TestData] = useState({
@@ -47,6 +63,50 @@ const Booking = () => {
   const [warningData, setWarningData] = useState(null)
 
   const tour = tours.find((t) => t.id === Number.parseInt(tourId))
+
+  // Load stored discount code on component mount
+  useEffect(() => {
+    // Load stored discount code
+    const discount = getStoredDiscountCode()
+    if (discount) {
+      setStoredDiscount(discount)
+    }
+  }, [])
+
+  // Check if this is the first booking
+  const isFirstBookingAfterRegister = isFirstBooking()
+
+  // Clear discount data when user logs out
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setStoredDiscount(null)
+      setDiscountCode("")
+      setAppliedDiscount(null)
+      setDiscountError("")
+    }
+  }, [isAuthenticated])
+
+  // Auto-fill customer info if user is authenticated
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      setCustomerInfoState({
+        name: user.fullName || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        emergencyContact: "",
+        specialRequests: "",
+      })
+    } else if (!isAuthenticated) {
+      // Clear customer info when user logs out
+      setCustomerInfoState({
+        name: "",
+        email: "",
+        phone: "",
+        emergencyContact: "",
+        specialRequests: "",
+      })
+    }
+  }, [isAuthenticated, user])
 
   if (!tour) {
     return (
@@ -72,7 +132,62 @@ const Booking = () => {
     let total = tour.price * participants
     if (addOns.equipment) total += 500000 * participants
     if (addOns.photography) total += 800000 * participants
+    
+    // Apply discount if available
+    if (appliedDiscount) {
+      const discountAmount = (total * appliedDiscount.percentage) / 100
+      total -= discountAmount
+    }
+    
     return total
+  }
+
+  const calculateDiscountAmount = () => {
+    if (!appliedDiscount) return 0
+    let subtotal = tour.price * participants
+    if (addOns.equipment) subtotal += 500000 * participants
+    if (addOns.photography) subtotal += 800000 * participants
+    return (subtotal * appliedDiscount.percentage) / 100
+  }
+
+  const handleApplyDiscount = () => {
+    setDiscountError("")
+    
+    if (!discountCode.trim()) {
+      setDiscountError("Vui lòng nhập mã giảm giá")
+      return
+    }
+    
+    // Get stored discount data
+    const stored = getStoredDiscountCode()
+    
+    // Check if code exists and matches
+    if (!stored || discountCode.toUpperCase() !== stored.code) {
+      setDiscountError("Mã giảm giá không hợp lệ.")
+      return
+    }
+    
+    // Check if code has already been used
+    if (stored.isUsed) {
+      setDiscountError("Mã giảm giá này đã được sử dụng.")
+      return
+    }
+    
+    // Check if this is the first booking (for first booking discount codes)
+    if (stored.isFirstBooking && !isFirstBookingAfterRegister) {
+      setDiscountError("Mã giảm giá này chỉ áp dụng cho booking đầu tiên của bạn.")
+      return
+    }
+    
+    // Apply the discount
+    setAppliedDiscount(stored)
+    setDiscountError("")
+  }
+
+  const handleRemoveDiscount = () => {
+    setAppliedDiscount(null)
+    setDiscountCode("")
+    setDiscountError("")
   }
 
   // VO2 Max Calculation Functions
@@ -273,6 +388,11 @@ const Booking = () => {
   }
 
   const handleBookingSubmit = () => {
+    // Mark discount code as used if applied
+    if (appliedDiscount) {
+      markDiscountCodeAsUsed()
+    }
+
     // Dispatch booking data to Redux
     dispatch(
       setCurrentBooking({
@@ -284,9 +404,11 @@ const Booking = () => {
     dispatch(setCustomerInfo(customerInfo))
     dispatch(setAddOns(addOns))
 
-    // Simulate booking process
-    alert("Đặt tour thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.")
-    navigate("/")
+    // Add current booking to history
+    dispatch(addCurrentBookingToHistory())
+
+    // Redirect to My Booking page instead of showing alert
+    navigate("/my-booking")
   }
 
   const steps = [
@@ -778,6 +900,37 @@ const Booking = () => {
                 <div className={styles.stepContent}>
                   <h2>Thông tin khách hàng</h2>
 
+                  {isAuthenticated && user ? (
+                    <div className={styles.autoFillNotice}>
+                      <CheckCircle size={16} />
+                      <span>Thông tin đã được điền sẵn từ tài khoản của bạn</span>
+                      <button 
+                        className={styles.clearButton}
+                        onClick={() => setCustomerInfoState({
+                          name: "",
+                          email: "",
+                          phone: "",
+                          emergencyContact: "",
+                          specialRequests: "",
+                        })}
+                        title="Xóa thông tin đã điền sẵn"
+                      >
+                        Xóa
+                      </button>
+                    </div>
+                  ) : (
+                    <div className={styles.loginPrompt}>
+                      <MessageCircle size={16} />
+                      <span>Đăng nhập để tự động điền thông tin và nhận ưu đãi đặc biệt</span>
+                      <button 
+                        className={styles.loginButton}
+                        onClick={() => navigate("/login")}
+                      >
+                        Đăng nhập
+                      </button>
+                    </div>
+                  )}
+
                   <div className={styles.formRow}>
                     <div className="form-group">
                       <label>Họ và tên *</label>
@@ -902,6 +1055,75 @@ const Booking = () => {
                 <div className={styles.stepContent}>
                   <h2>Thanh toán</h2>
 
+                  {/* Discount Section */}
+                  <div className={styles.discountSection}>
+                    {/* Show heading only for first booking */}
+                    {isFirstBookingAfterRegister && (
+                      <h3>🎉 Mã giảm giá cho booking đầu tiên</h3>
+                    )}
+                    
+                    {/* Show discount note only for first booking */}
+                    {isFirstBookingAfterRegister && (
+                      <p className={styles.discountNote}>
+                        💡 Bạn có mã giảm giá đặc biệt cho booking đầu tiên! Mã này chỉ có hiệu lực một lần duy nhất.
+                      </p>
+                    )}
+                    
+                    {storedDiscount && !appliedDiscount && isFirstBookingAfterRegister && (
+                      <div className={styles.storedDiscount}>
+                        <span className={styles.storedDiscountText}>
+                          💎 Mã giảm giá: <strong>{storedDiscount.code}</strong> (Giảm {storedDiscount.percentage}%)
+                        </span>
+                        <button 
+                          onClick={() => {
+                            setDiscountCode(storedDiscount.code)
+                            setAppliedDiscount(storedDiscount)
+                          }}
+                          className={styles.applyStoredDiscount}
+                        >
+                          Áp dụng
+                        </button>
+                      </div>
+                    )}
+                    
+                    <div className={styles.discountInput}>
+                      <div className={styles.inputGroup}>
+                        <Tag className={styles.inputIcon} size={20} />
+                        <input
+                          type="text"
+                          value={discountCode}
+                          onChange={(e) => setDiscountCode(e.target.value.toUpperCase())}
+                          placeholder="Nhập mã giảm giá"
+                          className={discountError ? styles.inputError : ""}
+                        />
+                        {appliedDiscount ? (
+                          <button 
+                            onClick={handleRemoveDiscount}
+                            className={styles.removeDiscount}
+                          >
+                            Xóa
+                          </button>
+                        ) : (
+                          <button 
+                            onClick={handleApplyDiscount}
+                            className={styles.applyDiscount}
+                          >
+                            Áp dụng
+                          </button>
+                        )}
+                      </div>
+                      {discountError && (
+                        <span className={styles.errorMessage}>{discountError}</span>
+                      )}
+                      {appliedDiscount && (
+                        <div className={styles.appliedDiscount}>
+                          <CheckCircle size={16} />
+                          <span>Đã áp dụng mã {appliedDiscount.code} - Giảm {appliedDiscount.percentage}%</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                   <div className={styles.paymentMethods}>
                     <h3>Chọn phương thức thanh toán</h3>
                     <div className={styles.paymentOptions}>
@@ -951,7 +1173,12 @@ const Booking = () => {
 
                   <div className={styles.terms}>
                     <label className={styles.checkbox}>
-                      <input type="checkbox" required />
+                      <input 
+                        type="checkbox" 
+                        checked={agreeToTerms}
+                        onChange={(e) => setAgreeToTerms(e.target.checked)}
+                        required 
+                      />
                       <span className={styles.checkmark}></span>
                       <span>
                         Tôi đồng ý với <a href="/terms">Điều khoản sử dụng</a> và
@@ -964,7 +1191,11 @@ const Booking = () => {
                     <button onClick={handlePrevStep} className="btn secondary">
                       Quay lại
                     </button>
-                    <button onClick={handleBookingSubmit} className="btn primary">
+                    <button 
+                      onClick={handleBookingSubmit} 
+                      className="btn primary"
+                      disabled={!paymentMethod || !agreeToTerms}
+                    >
                       Xác nhận đặt tour
                     </button>
                   </div>
@@ -1015,6 +1246,13 @@ const Booking = () => {
                       <div className={styles.priceItem}>
                         <span>Chụp ảnh chuyên nghiệp</span>
                         <span>{formatPrice(800000 * participants)}</span>
+                      </div>
+                    )}
+
+                    {appliedDiscount && (
+                      <div className={styles.priceItem}>
+                        <span>Giảm giá ({appliedDiscount.code})</span>
+                        <span className={styles.discountAmount}>-{formatPrice(calculateDiscountAmount())}</span>
                       </div>
                     )}
                   </div>

@@ -39,12 +39,24 @@ const bookingSlice = createSlice({
     addToBookingHistory: (state, action) => {
       state.bookingHistory.push(action.payload)
     },
+    addCurrentBookingToHistory: (state) => {
+      if (state.currentBooking.tourId) {
+        const bookingToAdd = {
+          ...state.currentBooking,
+          id: `BK${Date.now()}`,
+          bookingDate: new Date().toISOString().split('T')[0],
+          departureDate: state.currentBooking.selectedDate || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 7 days from now if no date selected
+          status: 'confirmed'
+        }
+        state.bookingHistory.push(bookingToAdd)
+      }
+    },
     clearCurrentBooking: (state) => {
       state.currentBooking = initialState.currentBooking
     },
   },
 })
 
-export const { setCurrentBooking, setCustomerInfo, setAddOns, addToBookingHistory, clearCurrentBooking } =
+export const { setCurrentBooking, setCustomerInfo, setAddOns, addToBookingHistory, addCurrentBookingToHistory, clearCurrentBooking } =
   bookingSlice.actions
 export default bookingSlice.reducer

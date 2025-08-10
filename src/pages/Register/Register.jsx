@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { Eye, EyeOff, Mail, Lock, User, Phone, ArrowLeft } from "lucide-react"
 import { registerUser } from "../../store/slices/authSlice"
+import { generateDiscountCode, getDiscountPercentage, storeDiscountCode } from "../../utils/discountUtils"
 import styles from "./Register.module.scss"
 
 const Register = () => {
@@ -93,6 +94,14 @@ const Register = () => {
       const result = await dispatch(registerUser(formData))
       
       if (result.success) {
+        // Automatically generate and store discount code for new registration
+        const discountCode = generateDiscountCode()
+        const discountPercent = getDiscountPercentage('new')
+        storeDiscountCode(discountCode, discountPercent, 30)
+        
+        // Store flag to show popup on home page
+        localStorage.setItem('show_discount_popup', 'true')
+        
         // Navigate to home page after successful registration
         navigate("/")
       } else {
@@ -128,6 +137,12 @@ const Register = () => {
               </div>
               <h2>Đăng ký</h2>
               <p>Tạo tài khoản mới để bắt đầu hành trình với Wandolo</p>
+              <div className={styles.promotionBanner}>
+                <span className={styles.promotionIcon}>💎</span>
+                <span className={styles.promotionText}>
+                  Đăng ký thành công sẽ nhận mã giảm giá <strong>10%</strong> cho booking đầu tiên!
+                </span>
+              </div>
             </div>
           </div>
 
@@ -270,6 +285,8 @@ const Register = () => {
               <span className={styles.fieldError}>{errors.agreeToTerms}</span>
             )}
           </div>
+
+
 
           <button
             type="submit"

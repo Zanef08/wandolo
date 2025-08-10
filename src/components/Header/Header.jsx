@@ -1,9 +1,9 @@
 "use client"
 import { Link, useLocation } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { Menu, X, Phone, MessageCircle, User, LogOut, ChevronDown } from "lucide-react"
+import { Menu, X, Phone, MessageCircle, User, LogOut, ChevronDown, Calendar } from "lucide-react"
 import { toggleMobileMenu, closeMobileMenu } from "../../store/slices/uiSlice"
-import { logout } from "../../store/slices/authSlice"
+import { logoutUser } from "../../store/slices/authSlice"
 import { useState, useEffect, useRef } from "react"
 import styles from "./Header.module.scss"
 
@@ -28,7 +28,7 @@ const Header = () => {
   }
 
   const handleLogout = () => {
-    dispatch(logout())
+    dispatch(logoutUser())
     setShowUserMenu(false)
   }
 
@@ -108,6 +108,14 @@ const Header = () => {
                       </div>
                     </div>
                     <div className={styles.menuDivider}></div>
+                    <Link 
+                      to="/my-booking" 
+                      className={styles.menuItem}
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <Calendar size={16} />
+                      <span>My Booking</span>
+                    </Link>
                     <button 
                       className={styles.logoutButton}
                       onClick={handleLogout}
@@ -165,6 +173,14 @@ const Header = () => {
                     <p className={styles.mobileUserName}>{user.fullName}</p>
                     <p className={styles.mobileUserEmail}>{user.email}</p>
                   </div>
+                  <Link 
+                    to="/my-booking" 
+                    className={styles.mobileMenuItem}
+                    onClick={handleLinkClick}
+                  >
+                    <Calendar size={16} />
+                    <span>My Booking</span>
+                  </Link>
                   <button 
                     className={styles.mobileLogoutButton}
                     onClick={handleLogout}
