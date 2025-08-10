@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { Eye, EyeOff, Mail, Lock, User, Phone } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock, User, Phone, ArrowLeft } from "lucide-react"
 import { registerUser } from "../../store/slices/authSlice"
 import styles from "./Register.module.scss"
 
@@ -21,6 +21,10 @@ const Register = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { isLoading, error } = useSelector((state) => state.auth)
+
+  const handleGoBack = () => {
+    navigate(-1)
+  }
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target
@@ -104,17 +108,26 @@ const Register = () => {
     <div className={styles.registerContainer}>
       <div className={styles.registerCard}>
         <div className={styles.imageSection}>
-          <img src="/tg2.png" alt="Wandolo Travel" className={styles.heroImage} />
+          <img src="/tg1.png" alt="Wandolo Travel" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>
           <div className={styles.registerHeader}>
+            <button 
+              type="button" 
+              className={styles.backButton}
+              onClick={handleGoBack}
+            >
+              <ArrowLeft size={20} />
+              Quay lại
+            </button>
             <div className={styles.logoSection}>
               <div className={styles.logoWrapper}>
                 <img src="/logo2.png" alt="Wandolo Logo" className={styles.logoIcon} />
                 <h1>WANDOLO</h1>
               </div>
-              <p>Vui lòng điền thông tin để tạo tài khoản của bạn</p>
+              <h2>Đăng ký</h2>
+              <p>Tạo tài khoản mới để bắt đầu hành trình với Wandolo</p>
             </div>
           </div>
 

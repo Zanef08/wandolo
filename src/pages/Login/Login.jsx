@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock, User, ArrowLeft } from "lucide-react"
 import { loginUser } from "../../store/slices/authSlice"
 import styles from "./Login.module.scss"
 
@@ -17,6 +17,10 @@ const Login = () => {
   const location = useLocation()
   const dispatch = useDispatch()
   const { isLoading, error } = useSelector((state) => state.auth)
+
+  const handleGoBack = () => {
+    navigate(-1)
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -82,6 +86,14 @@ const Login = () => {
         
         <div className={styles.formSection}>
           <div className={styles.loginHeader}>
+            <button 
+              type="button" 
+              className={styles.backButton}
+              onClick={handleGoBack}
+            >
+              <ArrowLeft size={20} />
+              Quay lại
+            </button>
             <div className={styles.logoSection}>
               <div className={styles.logoWrapper}>
                 <img src="/logo2.png" alt="Wandolo Logo" className={styles.logoIcon} />
