@@ -120,7 +120,7 @@ const VerifyCode = () => {
     <div className={styles.verifyCodeContainer}>
       <div className={styles.verifyCodeCard}>
         <div className={styles.imageSection}>
-          <img src="/tg4.png" alt="Verify Code" className={styles.heroImage} />
+          <img src="/4.jpg" alt="Verify Code" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>

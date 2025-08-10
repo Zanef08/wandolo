@@ -68,7 +68,7 @@ const ForgotPassword = () => {
       <div className={styles.forgotPasswordContainer}>
         <div className={styles.forgotPasswordCard}>
           <div className={styles.imageSection}>
-            <img src="/tg3.png" alt="Success" className={styles.heroImage} />
+            <img src="/3.jpg" alt="Success" className={styles.heroImage} />
           </div>
           
           <div className={styles.formSection}>
@@ -96,7 +96,7 @@ const ForgotPassword = () => {
     <div className={styles.forgotPasswordContainer}>
       <div className={styles.forgotPasswordCard}>
         <div className={styles.imageSection}>
-          <img src="/tg3.png" alt="Forgot Password" className={styles.heroImage} />
+          <img src="/3.jpg" alt="Forgot Password" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>

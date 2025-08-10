@@ -108,7 +108,7 @@ const Register = () => {
     <div className={styles.registerContainer}>
       <div className={styles.registerCard}>
         <div className={styles.imageSection}>
-          <img src="/tg1.png" alt="Wandolo Travel" className={styles.heroImage} />
+          <img src="/1.jpg" alt="Wandolo Travel" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>

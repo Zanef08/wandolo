@@ -81,7 +81,7 @@ const Login = () => {
     <div className={styles.loginContainer}>
       <div className={styles.loginCard}>
         <div className={styles.imageSection}>
-          <img src="/tg1.png" alt="Wandolo Travel" className={styles.heroImage} />
+          <img src="/2.png" alt="Wandolo Travel" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>

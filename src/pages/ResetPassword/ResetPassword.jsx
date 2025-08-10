@@ -91,7 +91,7 @@ const ResetPassword = () => {
     <div className={styles.resetPasswordContainer}>
       <div className={styles.resetPasswordCard}>
         <div className={styles.imageSection}>
-          <img src="/tg5.png" alt="Reset Password" className={styles.heroImage} />
+          <img src="/5.jpg" alt="Reset Password" className={styles.heroImage} />
         </div>
         
         <div className={styles.formSection}>
