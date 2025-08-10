@@ -45,7 +45,7 @@ const bookingSlice = createSlice({
           ...state.currentBooking,
           id: `BK${Date.now()}`,
           bookingDate: new Date().toISOString().split('T')[0],
-          departureDate: state.currentBooking.selectedDate || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 7 days from now if no date selected
+          departureDate: state.currentBooking.selectedDate || null, // Allow null for departure date
           status: 'confirmed'
         }
         state.bookingHistory.push(bookingToAdd)

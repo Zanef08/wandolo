@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { ArrowLeft, Calendar, Users, CreditCard, Shield, CheckCircle, Phone, MessageCircle, Activity, AlertTriangle, Tag } from "lucide-react"
 import { setCurrentBooking, setCustomerInfo, setAddOns, addCurrentBookingToHistory } from "../../store/slices/bookingSlice"
@@ -18,6 +18,7 @@ const Booking = () => {
   const { tourId } = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [searchParams] = useSearchParams()
   const { tours } = useSelector((state) => state.tours)
   const { currentBooking } = useSelector((state) => state.booking)
   const user = useSelector(selectUser)
@@ -72,6 +73,20 @@ const Booking = () => {
       setStoredDiscount(discount)
     }
   }, [])
+
+  // Load booking data from URL parameters
+  useEffect(() => {
+    const dateFromUrl = searchParams.get('date')
+    const peopleFromUrl = searchParams.get('people')
+    
+    if (dateFromUrl) {
+      setSelectedDate(dateFromUrl)
+    }
+    
+    if (peopleFromUrl) {
+      setParticipants(Number.parseInt(peopleFromUrl))
+    }
+  }, [searchParams])
 
   // Check if this is the first booking
   const isFirstBookingAfterRegister = isFirstBooking()
@@ -833,16 +848,14 @@ const Booking = () => {
               {currentStep === 2 && (
                 <div className={styles.stepContent}>
                   <h2>Chọn ngày khởi hành và số người tham gia</h2>
-
                   <div className="form-group">
-                    <label>Ngày khởi hành *</label>
+                    <label>Ngày khởi hành</label>
                     <div className="date-wrapper">
                       <input
                         type="date"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
                         min={new Date().toISOString().split("T")[0]}
-                        required
                       />
                     </div>
                   </div>
@@ -1217,12 +1230,10 @@ const Booking = () => {
                   </div>
                 </div>
 
-                {selectedDate && (
-                  <div className={styles.summaryItem}>
-                    <span>Ngày khởi hành:</span>
-                    <span>{new Date(selectedDate).toLocaleDateString("vi-VN")}</span>
-                  </div>
-                )}
+                <div className={styles.summaryItem}>
+                  <span>Ngày khởi hành:</span>
+                  <span>{selectedDate ? new Date(selectedDate).toLocaleDateString("vi-VN") : "Chưa chọn ngày"}</span>
+                </div>
 
                 <div className={styles.summaryItem}>
                   <span>Số người:</span>

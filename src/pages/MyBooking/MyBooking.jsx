@@ -45,7 +45,7 @@ const MyBooking = () => {
         duration: tour?.duration || "3 ngày 2 đêm",
         totalPrice: tour ? (tour.price * booking.participants) : 2400000,
         ticketNumber: `TK-2024-${String(booking.id).slice(-3)}`,
-        departureDate: booking.departureDate || booking.selectedDate || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // Fallback to 7 days from now
+        departureDate: booking.departureDate || booking.selectedDate || null, // Allow null for departure date
         guideInfo: {
           name: "Lê Văn C",
           phone: "0123456788",

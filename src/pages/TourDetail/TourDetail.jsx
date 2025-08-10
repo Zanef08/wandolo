@@ -29,6 +29,10 @@ const TourDetail = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [fullscreenImage, setFullscreenImage] = useState("")
+  
+  // Booking form state
+  const [departureDate, setDepartureDate] = useState("")
+  const [numPeople, setNumPeople] = useState(1)
 
   if (!tour) {
     return (
@@ -742,11 +746,21 @@ const TourDetail = () => {
               <form className={styles.bookingForm}>
                 <div className={styles.formGroup}>
                   <label htmlFor="departure-date">Ngày khởi hành</label>
-                  <input id="departure-date" type="date" />
+                  <input 
+                    id="departure-date" 
+                    type="date" 
+                    value={departureDate}
+                    onChange={(e) => setDepartureDate(e.target.value)}
+                    min={new Date().toISOString().split("T")[0]}
+                  />
                 </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="num-people">Số người tham gia</label>
-                  <select id="num-people">
+                  <select 
+                    id="num-people"
+                    value={numPeople}
+                    onChange={(e) => setNumPeople(Number.parseInt(e.target.value))}
+                  >
                     {Array.from({ length: tour.maxPeople }, (_, i) => (
                       <option key={i + 1} value={i + 1}>{i + 1} người</option>
                     ))}
@@ -754,7 +768,11 @@ const TourDetail = () => {
                 </div>
               </form>
 
-              <Link to={`/booking/${tour.id}`} className="btn primary mb-3" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: '24px' }}>
+              <Link 
+                to={`/booking/${tour.id}?date=${departureDate}&people=${numPeople}`} 
+                className="btn primary mb-3" 
+                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: '24px' }}
+              >
                 <Calendar size={20} />
                 Đặt tour ngay
               </Link>
