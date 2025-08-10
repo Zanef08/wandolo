@@ -132,7 +132,7 @@ const MyBooking = () => {
         </div>
         <div className="container">
           <div className={styles.heroContent}>
-            <h1>My Booking</h1>
+            <h1>Các tour đã đặt</h1>
             <p>Quản lý và xem thông tin các tour đã đặt</p>
           </div>
         </div>
